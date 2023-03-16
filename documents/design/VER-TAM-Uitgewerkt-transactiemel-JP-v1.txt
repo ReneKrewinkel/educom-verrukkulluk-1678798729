@@ -1,0 +1,68 @@
+Title Verrukkulluk
+
+actor Gebruiker
+
+participant Front End
+
+participant Back End
+
+
+==Transactie: HOMEPAGE==
+Gebruiker->Front End: Invoeren van zoekterm recept
+Front End->Back End: Zoek recepten
+
+database Database
+Back End->Database: Query Uitvoeren
+Front End<-Back End: Front end bijwerken
+Back End<-Database: Resultaat Query
+
+Gebruiker->Front End: klik op recept
+Front End -> Back End: Ophalen recept
+Back End->Database: Query Uitvoeren
+Back End<-Database: Resultaat Query
+Front End<-Back End: Front end bijwerken
+
+Gebruiker->Front End: "log in"
+
+
+
+  space
+  space
+
+==Transactie: Recept==
+Gebruiker->Front End: Klikt op favoriet
+Front End->Back End: Recept als favoriet selecteren
+Back End->Database: Bijwerken data met gerecht_info:record type
+Back End<-Database: informatie weggeschreven
+Front End<-Back End: Hartje inkleuren
+
+Gebruiker->Front End:Klikt op "Op lijst"
+Front End->Back End:Bijwerken Boodschappenlijst
+Back End -> Database: Bijwerken data met ingredient:aantal
+Back End<-Database: Informatie weggeschreven
+Back End -> Database: Informatie weggeschreven
+Database->Back End: Ophalen data met ingredient:aantal
+Back End-> Back End: Berekening uitvoeren
+Front End<-Back End: Boodschappenlijst updaten
+
+Gebruiker->Front End: Opmerking achter laten
+Front End->Back End: 
+Back End->Database: Bijwerken data gerecht_info:record type
+Back End<-Database: informatie weggeschreven
+Front End<-Back End: Opmerking toevoegen
+
+space 
+space 
+
+==Transactie: Boodschappenlijst==
+Gebruiker->Front End: Verander product aantal
+Front End->Back End: Bijwerken data ingredient:aantal
+Back End->Database: Query Uitvoeren
+Back End<-Database: Resultaat Query
+Front End<-Back End: Updaten data ingredient:aantal
+
+Gebruiker->Front End:Boodschappenlijst leeg maken
+Front End->Back End: Boodschappenlijst resetten
+Back End->Database: Bijwerken data met ingredient:aantal
+Back End<-Database: informatie weggeschreven
+Front End<-Back End: Producten van boodschappenlijst verwijderen
