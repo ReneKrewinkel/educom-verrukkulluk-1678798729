@@ -21,12 +21,16 @@ Gebruiker <- Front End: toon homepage
 ==Transactie: Recept pagina==
 Gebruiker -> Front End: klikt op recept link
 Front End -> Back End:ophalen informatie op basis van recept-id
+Back End -> Database:ophalen gerecht info
+Back End <- Database:gegevens gerecht info
 Back End -> Database:ophalen ingredient
 Back End <- Database:gegevens ingredient
 Back End -> Database:ophalen keuken-type
 Back End <- Database:gegevens keuken/type
 Back End -> Database:ophalen artikel
 Back End <- Database:gegevens artikel
+Back End -> Database:ophalen user
+Back End <- Database:gegevens user
 Back End <- Back End:Kcal berekenen
 Back End <- Back End:Prijs berekenen
 
@@ -98,10 +102,3 @@ Back End -> Database: query uitvoeren
 Back End <- Database: resultaat query
 Front End <- Back End: front end bijwerken
 Gebruiker <- Front End: toon recepten aan de hand van zoekterm op homepage
-
-
-
-
-
-
-
