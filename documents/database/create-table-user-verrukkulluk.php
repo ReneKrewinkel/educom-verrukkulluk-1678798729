@@ -16,7 +16,7 @@ try {
     // sql to create table
     $sql = "CREATE TABLE user(
     id INT(6) AUTO_INCREMENT, 
-    user_name VARCHAR(50) NOT NULL,
+    user_name VARCHAR(50) NOT NULL UNIQUE,
     password VARCHAR(50) NOT NULL,
     email VARCHAR(100) NOT NULL,
     afbeelding VARCHAR(200),
