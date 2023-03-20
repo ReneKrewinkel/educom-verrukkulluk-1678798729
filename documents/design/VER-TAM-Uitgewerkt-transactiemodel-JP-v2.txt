@@ -1,0 +1,81 @@
+Title Verrukkulluk
+
+actor Gebruiker
+
+participant Front End
+
+participant Back End
+
+
+==Transactie: HOMEPAGE==
+Gebruiker->Front End: invoeren van URL
+Front End -> Back End: ophalen informatie
+Front End <- Back End: stuurt resultaat
+Gebruiker <- Front End: toon homepage
+
+
+
+  space
+  space
+
+==Transactie: Recept pagina==
+Gebruiker -> Front End: klikt op recept link
+Front End -> Back End:ophalen informatie op basis van recept-id
+Front End <- Back End: stuurt resultaat
+Gebruiker <- Front End: toon recept
+
+
+space 
+space 
+
+==Transactie: Boodschappenlijst toevoegen ==
+Gebruiker->Front End: klikt op toevoegen aan boodschappenlijst
+Front End -> Back End:update en toon boodschappenlijst van user-id
+Back End -> Database: updaten data met id: recept-id,  user-id
+Back End<-Database: informatie weggeschreven
+Back End -> Database: ophalen data met id: aantal, user-id
+Back End <- Database: gegevens met id: aantal, user-id
+Back End <- Back End: bereken optimale aantal van iedere boodschap
+Front End <- Back End: stuurt resultaat
+Gebruiker <- Front End: toont boodschappenlijst pagina met geupdate informatie
+
+space
+space 
+
+== Transactie: Waardering toevoegen ==
+Gebruiker -> Front End: selecteert het aantal sterren
+Front End -> Gebruiker
+Front End -> Back End: stuur gegevens met id: recept-id, waardering
+Back End -> Database : bijwerken data met id: gerecht-info, waardering
+Back End <- Database: informatie weggeschreven
+Back End -> Database: ophalen data met id: gerecht-info, waardering
+Back End <- Database: gegevens met id: gerecht-info, waardering
+Back End <- Back End: berekening uitvoeren
+Front End <- Back End: versturen resultaat berekening
+Gebruiker <- Front End: toon gemiddelde waardering
+
+
+space
+space 
+
+== Transactie: Favoriet toevoegen ==
+Gebruiker -> Front End:selecter recept-id als favoriet
+Front End -> Back End: bijwerken recept-id als favoriet van user-id
+Back End -> Database:bijwerken data met id:gerecht-info, favoriet
+Database <- Back End:informatie weggeschreven
+Back End -> Database:ophalen data met id: gerecht-info, favoriet
+Back End <- Database:gegevens met id:gerecht-info, favoriet
+Front End <- Back End: versturen resultaat
+Gebruiker <- Front End: toon ingekleurd hartje emoticon
+
+space 
+space 
+
+
+== Transactie: Zoeken ==
+Gebruiker -> Front End:invoeren van zoekterm
+Front End -> Back End:zoek recepten met zoekterm
+Back End -> Database: query uitvoeren
+Back End <- Database: resultaat query
+Front End <- Back End: front end bijwerken
+Gebruiker <- Front End: toon recepten aan de hand van zoekterm
