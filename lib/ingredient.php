@@ -23,8 +23,8 @@ class ingredient{
         // $ingredient = mysqli_fetch_array($result, MYSQLI_ASSOC); 
 
         while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) { // mysql_fetch_array() returns false when no more rows are available --> no looping increment needed
-            var_dump($row);
-            echo "<br>";
+            // var_dump($row);
+            // echo "<br>";
             $artikel_id = $row["artikel_id"];
             $artikel =  $this -> kiesArtikel($artikel_id);
 
