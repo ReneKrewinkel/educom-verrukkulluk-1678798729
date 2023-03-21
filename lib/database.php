@@ -2,9 +2,10 @@
 
 // Aanpassen naar je eigen omgeving
 define("USER", "root");
-define("PASSWORD", "root");
+define("PASSWORD", "Edu-Com17");
 define("DATABASE", "verrukkulluk");
 define("HOST", "localhost");
+
 
 class database {
 
