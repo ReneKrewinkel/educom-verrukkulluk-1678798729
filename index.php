@@ -6,6 +6,7 @@ require_once("lib/user.php");
 require_once("lib/keuken_type.php"); 
 require_once("lib/ingredient.php");
 require_once("lib/gerecht_info.php");
+require_once("lib/gerecht.php");
 
 /// INIT
 $db = new database();
@@ -14,6 +15,7 @@ $user = new user($db -> getConnection());
 $keukenType = new keukenType($db->getConnection());
 $ingredient = new ingredient($db->getConnection());
 $gerecht_info = new gerecht_info($db->getConnection());
+$gerecht = new gerecht($db -> getConnection());
 
 
 
@@ -25,6 +27,7 @@ $gerecht_info = new gerecht_info($db->getConnection());
 $dataGerechtInfo = $gerecht_info -> selecteerGerechtInfo(21);
 // $voegFavorietToe = $gerecht_info -> selecteerAlsFavoriet(23, 3);
 // $verwijderFavoriet = $gerecht_info -> verwijderFavoriet(23);
+$dataGerecht = $gerecht ->selecteerRecept(23);
 
 echo "<pre>";
 // var_dump($dataArtikel);
@@ -35,9 +38,10 @@ echo "<pre>";
 
 // var_dump($dataIngredient);
 // echo '<br>';
-var_dump($dataGerechtInfo);
+// var_dump($dataGerechtInfo);
 echo '<br>';
-// var_dum($voegFavorietToe);
+// var_dump($voegFavorietToe);
+var_dump($dataGerecht);
 echo "</pre>";
 
 
