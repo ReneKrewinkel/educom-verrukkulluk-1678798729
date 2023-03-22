@@ -33,29 +33,45 @@ class gerecht_info{
                 $gerecht_info[] = $row;
             }
         }
-        
+
         return($gerecht_info);
     }
 
 
     public function selecteerAlsFavoriet($gerecht_id, $user_id){
-        $sql = " INSERT INTO gerecht_info (record_type, gerecht_id, user_id) 
-        VALUES ('F', $gerecht_id, '$user_id')";
-
-        mysqli_query($this->connection, $sql);
-
-        /* To test if it works properly
-            if (mysqli_query($this->connection, $sql)) {
-            echo "New record created successfully";
-            } else {
-            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        $checkFavoriet = FALSE;
+        $favoriet=[];
+        $sql = "SELECT * FROM gerecht_info WHERE gerecht_id = $gerecht_id";
+        $result = mysqli_query($this->connection, $sql);
+        
+        while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) { 
+            $favoriet[] = $row;
+        }
+        
+        foreach($favoriet as $item) {
+            if ((in_array("F", $item))){
+                // echo "F is present";
+                if ($item["user_id"] == $user_id){
+                    $checkFavoriet = TRUE;
+                }
             }
-        */
+        }
+
+
+        if ($checkFavoriet === FALSE){
+            $sql = " INSERT INTO gerecht_info (record_type, gerecht_id, user_id) 
+            VALUES ('F', $gerecht_id, '$user_id')";
+            mysqli_query($this->connection, $sql);
+            echo "favorite added";
+        } else {
+            echo " nothing happened";
+        }
+
     }
 
-    public function verwijderFavoriet($gerecht_id){
+    public function verwijderFavoriet($gerecht_id, $user_id){
         $sql = "DELETE FROM gerecht_info 
-        WHERE gerecht_id = $gerecht_id AND record_type = 'F'"; 
+        WHERE gerecht_id = $gerecht_id AND record_type = 'F' AND user_id = $user_id"; 
 
         mysqli_query($this->connection, $sql);
         /* to test if it works properly

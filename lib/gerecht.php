@@ -3,10 +3,11 @@
 
 class gerecht{
 
-    private $connection;
-    private $user;
-    private $ingredient;
-    private $keuken_type;
+    // private $connection;
+    // private $user;
+    // private $ingredient;
+    // private $keuken_type;
+    // private $gerecht_info;
 
 
 
@@ -15,6 +16,7 @@ class gerecht{
         $this -> user = new  user($connection);
         $this -> ingredient = new ingredient($connection);
         $this -> keuken_type = new keukenType($connection);
+        $this -> gerecht_info = new gerecht_info($connection);
     }
 
     private function selecteerUser($user_id){
@@ -37,6 +39,25 @@ class gerecht{
         return ($type);
     }
 
+    public function favoriet($gerecht_id){
+        $gerecht_info = $this -> gerecht_info -> selecteerGerechtInfo($gerecht_id);
+        // var_dump($gerecht_info);
+        // $array = [["gerecht", "G", "H"], ["gerecht" , "G", "H"]];
+        foreach($gerecht_info as $item) {
+            if (in_array("F", $item)){
+                $favoriet = TRUE;
+                // echo " true";
+                return $favoriet;
+            }
+        }
+        // echo " false"; 
+        $favoriet = FALSE;
+        return $favoriet;
+        }
+
+
+
+
     public function selecteerRecept($gerecht_id) {
         // $gerechten = [];
         $gerechtData = [];
@@ -49,16 +70,17 @@ class gerecht{
             $user_id = $row['user_id'];
             $keuken_id = $row['keuken_id'];
             $type_id = $row['type_id'];
-            var_dump($type_id);
             $ingredient = $this -> selecteerIngredient($gerecht_id);
             $user = $this -> selecteerUser($user_id);
             $keuken = $this -> selecteerKeuken($keuken_id);
             $type = $this -> selecteerType($type_id);
             var_dump($type);
             var_dump($keuken);
-            $keuken[] = 
+            echo "<br><br><br><br>";
+            var_dump($ingredient);
+            echo "<br><br><br><br>";
 
-            $gerechtData[] = $row + $user + 
+            $gerechtData[] = $row + $user + $ingredient +
                 ["keuken" => $keuken["omschrijving"]] + 
                 ["type" => $type["omschrijving"]];
 
@@ -66,15 +88,24 @@ class gerecht{
         }
 
         return($gerechtData);
-        
+                }
 
 
-        
+
+
+
+
+
+    public function berekenPrijs($ingredienten){
+   
     }
 
 
-
 }
+
+
+
+
 
 
 
