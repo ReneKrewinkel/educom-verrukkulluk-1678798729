@@ -26,9 +26,11 @@ $gerecht = new gerecht($db -> getConnection());
 // $dataIngredient = $ingredient -> selecteerIngredient(1);
 // $dataGerechtInfo = $gerecht_info -> selecteerGerechtInfo(21);
 // $voegFavorietToe = $gerecht_info -> selecteerAlsFavoriet(22, 2);
-$verwijderFavoriet = $gerecht_info -> verwijderFavoriet(24, 2);
-// $dataGerecht = $gerecht ->selecteerRecept(22);
-// $favorietGerecht = $gerecht ->favoriet(24);
+// $verwijderFavoriet = $gerecht_info -> verwijderFavoriet(24, 2);
+// $dataGerecht = $gerecht ->selecteerRecept(21);
+// $favorietGerecht = $gerecht ->favoriet(21,1);
+$prijsData = $gerecht -> berekenPrijs(21);
+
 
 echo "<pre>";
 // var_dump($dataArtikel);
@@ -44,7 +46,7 @@ echo '<br>';
 // var_dump($voegFavorietToe);
 // var_dump($dataGerecht);
 // var_dump($favorietGerecht);
-
+var_dump($prijsData);
 
 
 echo "</pre>";

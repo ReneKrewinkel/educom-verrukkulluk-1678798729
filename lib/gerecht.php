@@ -39,19 +39,21 @@ class gerecht{
         return ($type);
     }
 
-    public function favoriet($gerecht_id){
+    public function favoriet($gerecht_id, $user_id){
+        $favoriet = FALSE;
         $gerecht_info = $this -> gerecht_info -> selecteerGerechtInfo($gerecht_id);
-        // var_dump($gerecht_info);
-        // $array = [["gerecht", "G", "H"], ["gerecht" , "G", "H"]];
         foreach($gerecht_info as $item) {
-            if (in_array("F", $item)){
-                $favoriet = TRUE;
-                // echo " true";
+            if ($item["record_type"] === "F"){
+                echo "<pre>";
+                var_dump($item);
+                echo "</pre>";
+                if ($item["user_id"] == $user_id){
+                    echo "true1";
+                    $favoriet = TRUE;
                 return $favoriet;
+                }
             }
         }
-        // echo " false"; 
-        $favoriet = FALSE;
         return $favoriet;
         }
 
@@ -74,11 +76,11 @@ class gerecht{
             $user = $this -> selecteerUser($user_id);
             $keuken = $this -> selecteerKeuken($keuken_id);
             $type = $this -> selecteerType($type_id);
-            var_dump($type);
-            var_dump($keuken);
-            echo "<br><br><br><br>";
-            var_dump($ingredient);
-            echo "<br><br><br><br>";
+            // var_dump($type);
+            // var_dump($keuken);
+            // echo "<br><br><br><br>";
+            // var_dump($ingredient);
+            // echo "<br><br><br><br>";
 
             $gerechtData[] = $row + $user + $ingredient +
                 ["keuken" => $keuken["omschrijving"]] + 
@@ -96,10 +98,22 @@ class gerecht{
 
 
 
-    public function berekenPrijs($ingredienten){
-   
-    }
+    public function berekenPrijs($gerecht_id){
+        $prijsData=[];
+        (float)$totaalPrijs = 0;
+        $ingredientData = $this -> selecteerIngredient($gerecht_id);
 
+        foreach ($ingredientData as $prijs) {
+            $prijsData[] = $prijs["prijs"];
+        }
+        
+        foreach ($prijsData as $prijs) {
+            (float)$prijs;
+            $totaalPrijs = $totaalPrijs + $prijs;
+        }
+        return($totaalPrijs);
+
+    }
 
 }
 
