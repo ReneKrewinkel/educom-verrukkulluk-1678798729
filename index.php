@@ -22,9 +22,9 @@ $gerecht_info = new gerecht_info($db->getConnection());
 // $dataUser = $user -> selecteerUser(2);
 // $dataKeukenType = $keukenType -> selecteerKeukenType(1);
 // $dataIngredient = $ingredient -> selecteerIngredient(1);
-// $dataGerechtInfo = $gerecht_info -> selecteerGerechtInfo(21);
+$dataGerechtInfo = $gerecht_info -> selecteerGerechtInfo(21);
 // $voegFavorietToe = $gerecht_info -> selecteerAlsFavoriet(23, 3);
-$verwijderFavoriet = $gerecht_info -> verwijderFavoriet(23);
+// $verwijderFavoriet = $gerecht_info -> verwijderFavoriet(23);
 
 echo "<pre>";
 // var_dump($dataArtikel);
@@ -35,7 +35,7 @@ echo "<pre>";
 
 // var_dump($dataIngredient);
 // echo '<br>';
-// var_dump($dataGerechtInfo);
+var_dump($dataGerechtInfo);
 echo '<br>';
 // var_dum($voegFavorietToe);
 echo "</pre>";

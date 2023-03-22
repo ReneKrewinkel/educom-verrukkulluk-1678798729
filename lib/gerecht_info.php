@@ -30,9 +30,10 @@ class gerecht_info{
                 $gerecht_info[] = $row + $user;
             }
             else {
-            $gerecht_info[] = $row;
+                $gerecht_info[] = $row;
             }
         }
+        
         return($gerecht_info);
     }
 
@@ -41,23 +42,30 @@ class gerecht_info{
         $sql = " INSERT INTO gerecht_info (record_type, gerecht_id, user_id) 
         VALUES ('F', $gerecht_id, '$user_id')";
 
+        mysqli_query($this->connection, $sql);
+
+        /* To test if it works properly
             if (mysqli_query($this->connection, $sql)) {
             echo "New record created successfully";
             } else {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
             }
-        }
+        */
+    }
 
     public function verwijderFavoriet($gerecht_id){
-        $sql = "DELETE FROM gerecht_info WHERE gerecht_id = $gerecht_id AND record_type = F" 
+        $sql = "DELETE FROM gerecht_info 
+        WHERE gerecht_id = $gerecht_id AND record_type = 'F'"; 
 
-
-        if (mysqli_query($conn, $sql)) {
+        mysqli_query($this->connection, $sql);
+        /* to test if it works properly
+        if (mysqli_query($this->connection, $sql)) {
         echo "Record deleted successfully";
         } else {
         echo "Error deleting record: " . mysqli_error($conn);
         }
-        }
+        */
+    }
 
 
 
