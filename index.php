@@ -7,6 +7,7 @@ require_once("lib/keuken_type.php");
 require_once("lib/ingredient.php");
 require_once("lib/gerecht_info.php");
 require_once("lib/gerecht.php");
+require_once("lib/boodschappenlijst.php");
 
 /// INIT
 $db = new database();
@@ -16,6 +17,7 @@ $keukenType = new keukenType($db->getConnection());
 $ingredient = new ingredient($db->getConnection());
 $gerecht_info = new gerecht_info($db->getConnection());
 $gerecht = new gerecht($db -> getConnection());
+$boodschappen = new boodschappenlijst($db -> getConnection());
 
 
 
@@ -27,14 +29,15 @@ $gerecht = new gerecht($db -> getConnection());
 // $dataGerechtInfo = $gerecht_info -> selecteerGerechtInfo(21);
 // $voegFavorietToe = $gerecht_info -> voegFavorietToe(22, 2);
 // $verwijderFavoriet = $gerecht_info -> verwijderFavoriet(24, 2);
-$dataGerecht = $gerecht ->selecteerRecept(21, 4);
-$dataGerechten = $gerecht -> selecteerRecepten(array(21, 21), 4);
+// $dataGerecht = $gerecht ->selecteerRecept(21, 4);
+// $dataGerechten = $gerecht -> selecteerRecepten(array(21, 21), 4);
 // $isFavorietGerecht = $gerecht_info ->isFavoriet(22,2);
 // $prijsData = $gerecht -> berekenPrijs(21);
 // $bereiding = $gerecht -> selecteerBereiding(21);
 // $opmerkingen = $gerecht -> selecteerOpmerkingen(21);
 // $waardering = $gerecht -> berekenWaardering(21);
 // $kcal = $gerecht -> berekenKcal(22);
+$boodschappenData = $boodschappen -> toevoegenBoodschappen(22);
 
 echo "<pre>";
 // var_dump($dataArtikel);
@@ -52,7 +55,7 @@ echo '<br>';
 echo '<br>';
 echo '<br>';
 echo '<br>';
-var_dump($dataGerechten);
+// var_dump($dataGerechten);
 // var_dump($isFavorietGerecht);
 // echo $prijsData;
 echo "<br>";

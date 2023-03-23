@@ -75,7 +75,6 @@ class gerecht{
 
     public function berekenWaardering($gerecht_id) {
         $waardering = 0;
-        // $counter = 0;
         $waarderingData = [];
         $gerechtInfo = $this -> gerecht_info -> selecteerGerechtInfo($gerecht_id);
         foreach ($gerechtInfo as $row) {
@@ -86,7 +85,6 @@ class gerecht{
         
         foreach($waarderingData as $row){
             $waardering += $row["nummeriekveld"];
-            // $counter++;
         }
 
         if(count($waarderingData) != 0){
@@ -165,13 +163,6 @@ class gerecht{
                 "instructie" => $bereiding['tekstveld']
             ];
         }
-        // foreach ($favorietData as $favoriet){
-        //     $favorieten[] = [
-        //         "stap" => $favoriet['nummeriekveld'],
-        //         "instructie" => $favoriet['tekstveld']
-        //     ];
-        // }
-            
         
         $gerechtData["auteur"] = $userData['user_name'];
         $gerechtData["keuken"] = $keukenData["omschrijving"];
@@ -180,22 +171,9 @@ class gerecht{
         $gerechtData["kcal"] = $this -> berekenKcal($gerecht_id);
         $gerechtData["totaal prijs"] = $this -> berekenPrijs($gerecht_id);
         $gerechtData["waardering "] = $this -> berekenWaardering($gerecht_id);
-        // $gerechtData["favoriet"] = $favorietData;
         $gerechtData ["opmerkingen"] = $opmerkingen;
         $gerechtData ["bereidingen"] = $bereidingen;
         $gerechtData ["is favoriet"] = $isFavoriet;
-
-
-
-        // echo "<pre>";
-        // echo "<br>";
-        // var_dump($gerechtData);
-        // echo "<br>";
-        // echo "</pre>";
-
-        
-
-
 
         return($gerechtData);
     }
