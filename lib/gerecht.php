@@ -88,8 +88,12 @@ class gerecht{
             $waardering += $row["nummeriekveld"];
             // $counter++;
         }
-
+        if(count($waarderingData) != 0){
         $waardering = $waardering/count($waarderingData);
+        } else{
+            $waardering = 0;
+        }
+        
         return $waardering;
     }
 
@@ -117,6 +121,14 @@ class gerecht{
         }
         return $kcal;
     }
+
+    public function selecteerRecepten($gerecht_id_array, $user_id){
+        foreach ($gerecht_id_array as $gerecht_id){
+            $gerechten[] = $this -> selecteerRecept($gerecht_id, $user_id);
+        }
+        return $gerechten;
+    }
+
 
     public function selecteerRecept($gerecht_id, $user_id) {
         $sql = " SELECT * FROM gerecht WHERE id = $gerecht_id";
