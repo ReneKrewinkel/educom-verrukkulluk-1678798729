@@ -49,11 +49,7 @@ class gerecht{
         }
         return($favorieten);
 
-    }
-
-              
-
-
+    }  
 
     public function selecteerBereiding($gerecht_id){
             $bereiding = [];
@@ -122,7 +118,7 @@ class gerecht{
         return $kcal;
     }
 
-    public function selecteerRecept($gerecht_id) {
+    public function selecteerRecept($gerecht_id, $user_id) {
         $sql = " SELECT * FROM gerecht WHERE id = $gerecht_id";
         $result = mysqli_query($this -> connection, $sql);
         $gerechtData = mysqli_fetch_array($result, MYSQLI_ASSOC);
@@ -133,7 +129,7 @@ class gerecht{
         $opmerkingData = $this -> selecteerOpmerkingen($gerecht_id);
         $bereidingData = $this -> selecteerBereiding($gerecht_id);
         $favorietData = $this -> selecteerFavoriet($gerecht_id);
-        
+        $isFavoriet = $this -> gerecht_info -> isFavoriet($gerecht_id, $user_id);
         
         foreach ($ingredientData as $ingredient){
             $ingredienten[] = [
@@ -156,28 +152,33 @@ class gerecht{
                 "instructie" => $bereiding['tekstveld']
             ];
         }
-
-
+        // foreach ($favorietData as $favoriet){
+        //     $favorieten[] = [
+        //         "stap" => $favoriet['nummeriekveld'],
+        //         "instructie" => $favoriet['tekstveld']
+        //     ];
+        // }
 
         
-        $gerechtData["user name"] = $userData['user_name'];
+        $gerechtData["auteur"] = $userData['user_name'];
         $gerechtData["keuken"] = $keukenData["omschrijving"];
         $gerechtData["type"] = $typeData["omschrijving"];
         $gerechtData["ingredient"]= $ingredienten;
         $gerechtData["kcal"] = $this -> berekenKcal($gerecht_id);
         $gerechtData["totaal prijs"] = $this -> berekenPrijs($gerecht_id);
         $gerechtData["waardering "] = $this -> berekenWaardering($gerecht_id);
-        $gerechtData["favoriet"] = $favorietData;
+        // $gerechtData["favoriet"] = $favorietData;
         $gerechtData ["opmerkingen"] = $opmerkingen;
         $gerechtData ["bereidingen"] = $bereidingen;
+        $gerechtData ["is favoriet"] = $isFavoriet;
 
 
 
-        echo "<pre>";
-        echo "<br>";
-        var_dump($gerechtData);
-        echo "<br>";
-        echo "</pre>";
+        // echo "<pre>";
+        // echo "<br>";
+        // var_dump($gerechtData);
+        // echo "<br>";
+        // echo "</pre>";
 
         
 

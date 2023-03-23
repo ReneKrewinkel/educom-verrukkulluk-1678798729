@@ -118,9 +118,6 @@ class gerecht_info{
     }
 
 
-
-
-
 }
 
 
