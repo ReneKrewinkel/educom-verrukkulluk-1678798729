@@ -117,7 +117,7 @@ class gerecht_info{
         return;
     }
 
-    }
+
 
 
 
