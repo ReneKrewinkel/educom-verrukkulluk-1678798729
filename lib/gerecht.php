@@ -10,7 +10,7 @@ class gerecht{
     // private $gerecht_info;
 
 
-
+// Initialisatie
     public function __construct($connection) {
         $this -> connection = $connection;
         $this -> user = new  user($connection);
@@ -19,6 +19,7 @@ class gerecht{
         $this -> gerecht_info = new gerecht_info($connection);
     }
 
+// Data ophalen
     private function selecteerUser($user_id){
         $userData = $this -> user -> selecteerUser($user_id);
         return ($userData);
@@ -73,6 +74,8 @@ class gerecht{
         return $opmerkingen;
     }
 
+
+// Berekeningen 
     public function berekenWaardering($gerecht_id) {
         $waardering = 0;
         $waarderingData = [];
@@ -121,14 +124,12 @@ class gerecht{
         return $kcal;
     }
 
-    public function selecteerRecepten($gerecht_id_array, $user_id){
-        foreach ($gerecht_id_array as $gerecht_id){
-            $gerechten[] = $this -> selecteerRecept($gerecht_id, $user_id);
-        }
-        return $gerechten;
-    }
 
 
+
+
+// Alle data van recepten ophalen
+//Enkel recept
     public function selecteerRecept($gerecht_id, $user_id) {
         $sql = " SELECT * FROM gerecht WHERE id = $gerecht_id";
         $result = mysqli_query($this -> connection, $sql);
@@ -178,6 +179,14 @@ class gerecht{
         return($gerechtData);
     }
 
+    
+// Meerdere recepten
+    public function selecteerRecepten($gerecht_id_array, $user_id){
+        foreach ($gerecht_id_array as $gerecht_id){
+            $gerechten[] = $this -> selecteerRecept($gerecht_id, $user_id);
+        }
+        return $gerechten;
+    }
 
 
 }
