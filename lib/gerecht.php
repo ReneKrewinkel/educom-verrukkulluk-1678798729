@@ -88,6 +88,7 @@ class gerecht{
             $waardering += $row["nummeriekveld"];
             // $counter++;
         }
+
         if(count($waarderingData) != 0){
         $waardering = $waardering/count($waarderingData);
         } else{
@@ -170,7 +171,7 @@ class gerecht{
         //         "instructie" => $favoriet['tekstveld']
         //     ];
         // }
-
+            
         
         $gerechtData["auteur"] = $userData['user_name'];
         $gerechtData["keuken"] = $keukenData["omschrijving"];
