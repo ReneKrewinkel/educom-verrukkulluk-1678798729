@@ -4,7 +4,7 @@
 
 class boodschappenlijst{
 
-    private function __construct($connection) {
+    public function __construct($connection) {
         $this -> connection = $connection;
         $this -> ingredient = new ingredient($connection);
         $this -> artikel = new artikel($connection);

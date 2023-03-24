@@ -11,7 +11,7 @@ class gerecht{
 
 
 // Initialisatie
-    private function __construct($connection) {
+    public function __construct($connection) {
         $this -> connection = $connection;
         $this -> user = new  user($connection);
         $this -> ingredient = new ingredient($connection);
