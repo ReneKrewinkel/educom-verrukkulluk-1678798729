@@ -3,11 +3,11 @@
 
 class gerecht{
 
-    // private $connection;
-    // private $user;
-    // private $ingredient;
-    // private $keuken_type;
-    // private $gerecht_info;
+    private $connection;
+    private $user;
+    private $ingredient;
+    private $keuken_type;
+    private $gerecht_info;
 
 
 // Initialisatie
@@ -49,7 +49,6 @@ class gerecht{
             }
         }
         return($favorieten);
-
     }  
 
     private function selecteerBereiding($gerecht_id){
@@ -73,7 +72,6 @@ class gerecht{
         }
         return $opmerkingen;
     }
-
 
 // Berekeningen 
     private function berekenWaardering($gerecht_id) {
@@ -99,7 +97,6 @@ class gerecht{
         return $waardering;
     }
 
-
     private function berekenPrijs($gerecht_id){
         $totaal = 0;
         $prijsData=[];
@@ -123,9 +120,6 @@ class gerecht{
         }
         return $kcal;
     }
-
-
-
 
 
 // Alle data van recepten ophalen
@@ -175,7 +169,6 @@ class gerecht{
         $gerechtData ["opmerkingen"] = $opmerkingen;
         $gerechtData ["bereidingen"] = $bereidingen;
         $gerechtData ["is favoriet"] = $isFavoriet;
-
         return($gerechtData);
     }
 
@@ -188,13 +181,6 @@ class gerecht{
         return $gerechten;
     }
 
-
 }
-
-
-
-
-
-
 
 ?>
