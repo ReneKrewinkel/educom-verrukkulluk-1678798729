@@ -33,12 +33,11 @@ class boodschappenlijst{
         return $boodschapUser;
     }
 
-    public function toevoegenBoodschap($artikel_id, $user_id, $nieuwAantal){
-
-        
-        $ingebruik = $nieuwAantal * 
+    public function updateBoodschapAantal($artikel_id, $user_id, $nieuwAantal){
+        $artikelData = $this -> ophalenArtikel($artikel_id);      
+        $ingebruik = $nieuwAantal * $artikelData["verpakking"];
         $sql = "UPDATE boodschappenlijst 
-                SET bestelAantal = $nieuwAantal AND ingebruik = ($nieuwAantal *  /* $nieuwAantal moet nog uit de front-end geladen worden*/
+                SET bestelAantal = $nieuwAantal AND ingebruik = $ingebruik  /* $nieuwAantal moet nog uit de front-end geladen worden*/
                 WHERE user_id = $user_id AND artikel_id = $artikel_id" ;
         mysqli_query($this -> connection, $sql);
     }
@@ -82,10 +81,10 @@ class boodschappenlijst{
                     echo "boodschap geupdate <br>";
                     
             }else{
-                $boodschappenAantal = $this -> boodschappenAantal($ingredient, $user_id);
+                list($bestelAantal, $ingebruik) = $this -> boodschappenAantal($ingredient, $user_id);
                 $sql = "INSERT INTO boodschappenlijst 
                 (user_id, artikel_id, bestelAantal, ingebruik) 
-                VALUES($user_id, $artikel_id, '". $boodschappenAantal[0] . "', '". $boodschappenAantal[1] . "')";
+                VALUES($user_id, $artikel_id, $bestelAantal, $ingebruik)";
                 mysqli_query($this -> connection, $sql);
                 echo" boodschap toegevoegd <br>";
             }
