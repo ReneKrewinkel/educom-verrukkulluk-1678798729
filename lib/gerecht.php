@@ -11,7 +11,7 @@ class gerecht{
 
 
 // Initialisatie
-    public function __construct($connection) {
+    private function __construct($connection) {
         $this -> connection = $connection;
         $this -> user = new  user($connection);
         $this -> ingredient = new ingredient($connection);
@@ -52,7 +52,7 @@ class gerecht{
 
     }  
 
-    public function selecteerBereiding($gerecht_id){
+    private function selecteerBereiding($gerecht_id){
             $bereiding = [];
             $bereidingData = $this -> gerecht_info -> selecteerGerechtInfo($gerecht_id);
             foreach($bereidingData as $row) {
@@ -63,7 +63,7 @@ class gerecht{
             return $bereiding;
     }
 
-    public function selecteerOpmerkingen($gerecht_id){
+    private function selecteerOpmerkingen($gerecht_id){
         $opmerkingen =  [];
         $opmerkingData = $this -> gerecht_info -> selecteerGerechtInfo($gerecht_id);
         foreach($opmerkingData as $row) {
@@ -76,7 +76,7 @@ class gerecht{
 
 
 // Berekeningen 
-    public function berekenWaardering($gerecht_id) {
+    private function berekenWaardering($gerecht_id) {
         $waardering = 0;
         $waarderingData = [];
         $gerechtInfo = $this -> gerecht_info -> selecteerGerechtInfo($gerecht_id);
@@ -100,7 +100,7 @@ class gerecht{
     }
 
 
-    public function berekenPrijs($gerecht_id){
+    private function berekenPrijs($gerecht_id){
         $totaal = 0;
         $prijsData=[];
         (float)$totaalPrijs = 0;
@@ -114,7 +114,7 @@ class gerecht{
 
     }
 
-    public function berekenKcal($gerecht_id){
+    private function berekenKcal($gerecht_id){
         $kcalData = [];
         $kcal = 0;
         $ingredientData = $this -> ingredient -> selecteerIngredient($gerecht_id);
@@ -179,9 +179,9 @@ class gerecht{
         return($gerechtData);
     }
 
-    
+
 // Meerdere recepten
-    public function selecteerRecepten($gerecht_id_array, $user_id){
+    private function selecteerRecepten($gerecht_id_array, $user_id){
         foreach ($gerecht_id_array as $gerecht_id){
             $gerechten[] = $this -> selecteerRecept($gerecht_id, $user_id);
         }

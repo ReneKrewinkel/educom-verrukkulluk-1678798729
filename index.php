@@ -37,7 +37,7 @@ $boodschappen = new boodschappenlijst($db -> getConnection());
 // $opmerkingen = $gerecht -> selecteerOpmerkingen(21);
 // $waardering = $gerecht -> berekenWaardering(21);
 // $kcal = $gerecht -> berekenKcal(22);
-$boodschappenData = $boodschappen -> toevoegenBoodschappen(22);
+$boodschappenData = $boodschappen -> toevoegenBoodschappenRecept(22, 4);
 
 echo "<pre>";
 // var_dump($dataArtikel);
