@@ -3,7 +3,7 @@
 require_once("../vendor/autoload.php");
 
 /// Twig koppelen:
-$loader = new \Twig\Loader\FilesystemLoader("./templates");
+$loader = new \Twig\Loader\FilesystemLoader("../templates");
 /// VOOR PRODUCTIE:
 /// $twig = new \Twig\Environment($loader), ["cache" => "./cache/cc"]);
 
@@ -32,7 +32,7 @@ switch($action) {
 
         case "homepage": {
             $data = $gerecht->selecteerGerecht();
-            $template = 'detail.html.twig';
+            $template = 'homepage.html.twig';
             $title = "homepage";
             break;
         }
