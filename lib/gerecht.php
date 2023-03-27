@@ -108,7 +108,6 @@ class gerecht{
         }
         
         return(round($totaal,2));
-
     }
 
     private function berekenKcal($gerecht_id){
@@ -125,6 +124,12 @@ class gerecht{
 // Alle data van recepten ophalen
 //Enkel recept
     public function selecteerRecept($gerecht_id, $user_id) {
+        // $sql = "SELECT * FROM gerecht";
+
+        // if(!isnull($gerecht_id){
+        //     $sql = ""
+        // })
+
         $sql = " SELECT * FROM gerecht WHERE id = $gerecht_id";
         $result = mysqli_query($this -> connection, $sql);
         $gerechtData = mysqli_fetch_array($result, MYSQLI_ASSOC);
@@ -137,37 +142,37 @@ class gerecht{
         $favorietData = $this -> selecteerFavoriet($gerecht_id);
         $isFavoriet = $this -> gerecht_info -> isFavoriet($gerecht_id, $user_id);
         
-        foreach ($ingredientData as $ingredient){
-            $ingredienten[] = [
-                "naam" => $ingredient['naam'],
-                "omschrijving" => $ingredient['omschrijving'],
-                "prijs" => $ingredient['prijs'],
-                "aantal" => $ingredient["aantal"]
-            ];
-        }
-        foreach ($opmerkingData as $opmerking){
-            $opmerkingen[] = [
-                "naam" => $opmerking['user_name'],
-                "opmerking" => $opmerking['tekstveld'],
-                "afbeelding" => $opmerking['afbeelding']
-            ];
-        }
-        foreach ($bereidingData as $bereiding){
-            $bereidingen[] = [
-                "stap" => $bereiding['nummeriekveld'],
-                "instructie" => $bereiding['tekstveld']
-            ];
-        }
+        // foreach ($ingredientData as $ingredient){
+        //     $ingredienten[] = [
+        //         "naam" => $ingredient['naam'],
+        //         "omschrijving" => $ingredient['omschrijving'],
+        //         "prijs" => $ingredient['prijs'],
+        //         "aantal" => $ingredient["aantal"]
+        //     ];
+        // }
+        // foreach ($opmerkingData as $opmerking){
+        //     $opmerkingen[] = [
+        //         "naam" => $opmerking['user_name'],
+        //         "opmerking" => $opmerking['tekstveld'],
+        //         "afbeelding" => $opmerking['afbeelding']
+        //     ];
+        // }
+        // foreach ($bereidingData as $bereiding){
+        //     $bereidingen[] = [
+        //         "stap" => $bereiding['nummeriekveld'],
+        //         "instructie" => $bereiding['tekstveld']
+        //     ];
+        // }
         
         $gerechtData["auteur"] = $userData['user_name'];
         $gerechtData["keuken"] = $keukenData["omschrijving"];
         $gerechtData["type"] = $typeData["omschrijving"];
-        $gerechtData["ingredient"]= $ingredienten;
+        $gerechtData["ingredient"]= $ingredientData;
         $gerechtData["kcal"] = $this -> berekenKcal($gerecht_id);
         $gerechtData["totaal prijs"] = $this -> berekenPrijs($gerecht_id);
         $gerechtData["waardering "] = $this -> berekenWaardering($gerecht_id);
-        $gerechtData ["opmerkingen"] = $opmerkingen;
-        $gerechtData ["bereidingen"] = $bereidingen;
+        $gerechtData ["opmerkingen"] = $opmerkingData;
+        $gerechtData ["bereidingen"] = $bereidingData;
         $gerechtData ["is favoriet"] = $isFavoriet;
         return($gerechtData);
     }
