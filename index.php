@@ -107,6 +107,36 @@ switch($action) {
             break;
         }
 
+        case "boodschappenlijst": {
+            $data = $boodschappen -> ophalenBoodschappenlijstUser($user_id);
+            $template = 'detail.html.twig';
+            $title = 'Boodschappenlijst';
+            break;
+        }
+
+        case "favoriet": {
+            $data = $gerecht->selecteerFavoriet($user_id);
+            $template = 'detail.html.twig';
+            $title = "detail pagina";
+            break;
+        }
+
+        case "zoeken": {
+            // $data = );
+            $template = 'detail.html.twig';
+            $title = "detail pagina";
+            break;
+        }
+
+        case "waardering": {
+            $data = $gerecht -> berekenWaardering($gerecht_id);
+            $template = 'detail.html.twig';
+            $title = "detail pagina";
+            break;
+        }
+
+
+
         /// etc
 
 }
