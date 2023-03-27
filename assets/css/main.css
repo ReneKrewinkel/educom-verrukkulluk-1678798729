@@ -29,7 +29,8 @@
 
 }
 
-/** HEADING **/
+/** HEADINGS **/
+
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--heading) !important;
 }
@@ -52,3 +53,66 @@ html, body {
     font-family: "Helvetica Neue", Arial, SansSerif;
     font-size: 16px;
 }
+
+/* Header */
+.header-center{
+    background-image: url("../img/vegan-burger.png");
+    background-size: cover;
+
+    /* padding: 25px; */
+    background-origin: content-box;
+    background-repeat: no-repeat;
+    margin-left: 50px;
+    height: 700px;
+
+}
+
+/* Agenda  */
+.agenda-color{
+    width: 90%;
+    height: 600px; 
+    background-color: var(--lighter-green);
+    margin-left: 20px;
+    border: 10px solid #FFF;
+}
+
+.agenda-center{
+    display: flex;
+    height: 15%;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Login */
+.login-color{
+width: 90%;
+height: 300px;
+background-color: var(--darker-red);
+margin-left: 20px;
+border: 10px solid #FFF;
+}
+
+.login-center {
+    display: flex;
+    height: 33%;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.footer-color {
+background-color: var(--darker-orange);
+/* padding-left: 80px; */
+/* margin-right: 120px; */
+height: 300px;
+}
+
+.contact-center {
+    display: flex;
+    height: 30%;
+    justify content: center:
+}
+
+
+
+
+
