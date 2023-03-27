@@ -95,7 +95,7 @@ switch($action) {
 
         case "homepage": {
             $data = $gerecht->selecteerGerechten(1);
-            $template = 'detail.html.twig';
+            $template = 'homepage.html.twig';
             $title = "homepage";
             break;
         }

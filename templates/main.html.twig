@@ -7,18 +7,50 @@
     <link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/fonts.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/fontawesome.css" />
+    <link rel="stylesheet" href = "../assets/vegas/vegas.css"/>
+
 
     <link rel="stylesheet" type="text/css" href="assets/css/main.css" />
 
     <script type="text/javascript" language="javascript" src="assets/jquery/jquery-3.5.1.js"></script>
     <script type="text/javascript" language="javascript" src="assets/bootstrap/js/bootstrap.js"></script>
+    <script src = "../assets/js/jquery.js"></script>
+    <script src = "../assets/vegas/vegas.js"></script>
+
+{# Vegas.js #}
+    <script>
+        $(document).ready( function() {
+ 
+            const mySlides = [
+                { src: "https://picsum.photos/id/1/1900/1200", title: "Title #1", subtitle: "Subtitle #1" },
+                { src: "https://picsum.photos/id/10/1900/1200", title: "Title #2", subtitle: "Subtitle #2"  },
+                { src: "https://picsum.photos/id/100/1900/1200", title: "Title #3", subtitle: "Subtitle #3"  },
+                { src: "https://picsum.photos/id/1000/1900/1200", title: "Title #4", subtitle: "Subtitle #4"  },
+            ]
+        
+            $("#background-image").vegas({
+                overlay: 'vegas/overlays/02.png',
+                slides: mySlides,
+                walk: function (index, slideSettings) {
+                    $(".text-block h1").html(mySlides[index].title)
+                    $(".text-block h4").html(mySlides[index].subtitle)
+                }
+            })
+
+        }) 
+    </script>
+
 
 </html>
 <body>
-<div class="container-fluid">
+{# vegas #}
+{# <div class="container-fluid">
+<div id = "background-image"> #}
+{#  #}
+</div>
 
-    <div class="row">
-        <div class="col-md-12">
+    <div class="row background-image">
+        <div class="col-md-12 ">
         {% block header %}
         {% endblock %}   
         </div>

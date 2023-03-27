@@ -73,7 +73,7 @@ html, body {
     width: 90%;
     height: 800px; 
     background-color: var(--lighter-green);
-    margin-left: 20px;
+    margin-left: 200px;
     border: 10px solid #FFF;
 }
 
@@ -89,7 +89,7 @@ html, body {
 width: 90%;
 height: 350px;
 background-color: var(--darker-red);
-margin-left: 20px;
+margin-left: 200px;
 border: 10px solid #FFF;
 }
 
@@ -102,9 +102,10 @@ border: 10px solid #FFF;
 
 .footer-color {
 background-color: var(--darker-orange);
-/* padding-left: 80px; */
-/* margin-right: 120px; */
+width: 80%;
 height: 300px;
+margin-left: 160px;
+/* justify-content: center; */
 }
 
 .contact-center {
@@ -116,4 +117,9 @@ height: 300px;
 
 
 
-
+/* VEGAS */
+#background-image {
+    width: 100%;    
+    position: relative;
+    height: 90%;   
+}
