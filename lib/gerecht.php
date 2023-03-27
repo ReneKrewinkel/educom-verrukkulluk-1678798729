@@ -122,13 +122,12 @@ class gerecht{
 
 
 //  data van recepten ophalen
-    public function selecteerRecept($gerecht_id = NULL) {
+    public function selecteerGerechten($gerecht_id = NULL) {
         $sql = "SELECT * FROM gerecht";
 
         if(!is_null($gerecht_id)){
             $sql .=  " WHERE id = $gerecht_id";
         }
-        var_dump($gerecht_id);
         $gerechten = [];
         $result = mysqli_query($this -> connection, $sql);
         while ($gerechtData = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
