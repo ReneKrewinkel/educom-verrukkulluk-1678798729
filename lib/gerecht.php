@@ -126,9 +126,9 @@ class gerecht{
         $sql = "SELECT * FROM gerecht";
 
         if(!is_null($gerecht_id)){
-            $sql .= "WHERE id = $gerecht_id";
+            $sql .=  " WHERE id = $gerecht_id";
         }
-
+        var_dump($gerecht_id);
         $gerechten = [];
         $result = mysqli_query($this -> connection, $sql);
         while ($gerechtData = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
