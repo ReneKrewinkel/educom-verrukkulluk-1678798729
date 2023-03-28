@@ -116,32 +116,20 @@ margin-left: 160px;
 
 
 
-/* VEGAS */
+/* Vegas */
 #background-image {
     width: 1625px;    
     height: 700px;
+    background-size: cover;
+    background-position: center;
 }
 
-.text-block {
-    padding: 40px;  
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0; 
-}
 
-.text-block h1 {
-    color: #FFF;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 62px;
-    margin-bottom: 10px;
-}
 
-.text-block h4 {
-    color: #FFF;
-    font-family: Arial, Helvetica, sans-serif;    
-    font-size: 26px; 
-    margin-top: 0; 
+/* Detail */
+.image-detail{
+    width: 500px;
+    height: 600px;
+    background-position: 23%;
+    background-image: url("../img/vegan-burger.png");
 }
