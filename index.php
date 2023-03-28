@@ -94,7 +94,7 @@ $action = isset($_GET["action"]) ? $_GET["action"] : "homepage";
 switch($action) {
 
         case "homepage": {
-            $data = $gerecht->selecteerGerechten(1);
+            $data = $gerecht->selecteerGerechten();
             $template = 'homepage.html.twig';
             $title = "homepage";
             break;

@@ -60,6 +60,7 @@ p{
 
 /* Header */
 
+/* Main page  */
 
 /* Agenda  */
 .agenda-color{
@@ -122,14 +123,23 @@ margin-left: 160px;
     height: 700px;
     background-size: cover;
     background-position: center;
+    overflow: hidden;
 }
 
 
+/* home page */
+.image-detail-home{
+    display:flex;
+    background-position: center;
+    background-size: cover;
+}
 
-/* Detail */
+
+/* Detail page */
 .image-detail{
     width: 500px;
     height: 600px;
     background-position: 23%;
     background-image: url("../img/vegan-burger.png");
 }
+

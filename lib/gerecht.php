@@ -143,16 +143,21 @@ class gerecht{
             $isFavoriet = $this -> gerecht_info -> isFavoriet($gerecht_id, $gerechtData["user_id"]);
 
             $gerechten[] = [
+                "titel" => $gerechtData['titel'],
+                "korte_omschrijving" => $gerechtData['korte_omschrijving'],
+                "lange_omschrijving" => $gerechtData['lange_omschrijving'],
+                "afbeelding" => $gerechtData['afbeelding'],
+                "datum" => $gerechtData['datum_toegevoegd'],
                 "auteur" => $userData['user_name'],
                 "keuken" => $keukenData["omschrijving"],
                 "type" => $typeData["omschrijving"],
                 "ingredient" => $ingredientData,
                 "kcal" => $this -> berekenKcal($gerecht_id),
-                "totaal prijs" => $this -> berekenPrijs($gerecht_id),
-                "waardering " => $this -> berekenWaardering($gerecht_id),
+                "totaal_prijs" => $this -> berekenPrijs($gerecht_id),
+                "waardering" => $this -> berekenWaardering($gerecht_id),
                 "opmerkingen" => $opmerkingData,
                 "bereidingen" => $bereidingData,
-                "is favoriet" => $isFavoriet,
+                "is_favoriet" => $isFavoriet,
             ];
         }
         return($gerechten);
