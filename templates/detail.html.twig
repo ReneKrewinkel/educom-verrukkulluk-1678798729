@@ -2,9 +2,27 @@
 {% extends "main.html.twig" %}
 
 {% block header %}
-<div id = "header-center">
 
-<img src = "assets/img/logo-v2.png" alt = "verrukkulluk logo"/>
+{# Vegas.js #}
+    <script>
+        $(document).ready( function() {
+ 
+            const mySlides = [
+                { src: "assets/img/vegan-burger.png" }
+            ]
+        
+            $("#background-image").vegas({
+                overlay: 'vegas/overlays/02.png',
+                slides: mySlides,
+                })
+            })
+
+
+    </script>
+
+<div>
+
+{# <img src = "assets/img/logo-v2.png" alt = "verrukkulluk logo"/> #}
 
 </div>
 {% endblock %}
