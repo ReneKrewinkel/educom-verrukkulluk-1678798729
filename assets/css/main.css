@@ -77,8 +77,7 @@ p{
     width: 90%;
     height: 800px; 
     background-color: var(--lighter-green);
-    margin-left: 0px;
-    border: 10px solid #FFF;
+    /* border: 10px solid #FFF; */
 }
 
 .agenda-center{
@@ -88,13 +87,18 @@ p{
     margin-top: 20px;
 }
 
+.agenda-border {
+    box-shadow: 2px 2px 8px #727272;
+    
+  }
+
+
 /* Login */
 .login-color{
 width: 90%;
 height: 350px;
 background-color: var(--darker-red);
-margin-left: 0px;
-border: 10px solid #FFF;
+/* border: 10px solid #FFF; */
 }
 
 .login-center {
@@ -104,6 +108,10 @@ border: 10px solid #FFF;
     margin-top: 20px;
 }
 
+
+
+
+/* Footer  */
 .footer-color {
 background-color: var(--darker-orange);
 width: 80%;
