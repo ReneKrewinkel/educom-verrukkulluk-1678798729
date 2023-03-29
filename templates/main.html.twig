@@ -24,28 +24,26 @@
 <body>
 
 <div class="container-fluid">
-    <div  >
-    </div>
-
-    <div class="row ">
-        <div class="col-md-12" >
-            <div class="d-flex justify-content-center">
-                <div id = "background-image"></div>
+    <div id = "background-image">
+        <div class="row ">
+            <div class="col-12" >
+            <a href="http://localhost/educom-verrukkulluk-1668679337/index.php"> <img src="assets/img/logo-v2.png"/> </a>
+                    
+            
+            {% block header %}
+            {% endblock %}   
             </div>
-        {% block header %}
-
-        <img src="assets/img/logo-v2.png"/>
-        {% endblock %}   
         </div>
     </div>
+        
 
 
 
 
-	<div class="row">
-		<div class="col-md-3 ">
-			<div class="row">
-				<div class="col-md-12 p-4 m-5  agenda-color shadow-border">
+    <div class="row ">
+        <div class="col-3  ">
+            <div class="row">
+                <div class="col-md-12 p-4 m-5  agenda-color shadow-border">
                     <div class="agenda-center"><img src = "assets/img/verrukkulluk-agenda.png" alt = "agenda header"></div>
                     <ul class="fa-ul">
                         <li>
@@ -53,62 +51,53 @@
                         <h3 style = "margin-left: 40px;">Vegetarisch koken</h3>
                         <p style = "margin-left: 40px;"> Een workshop vegetarisch koken, onder leiding van trientje Hupsakee</p>
                         </li>
-                         <li>
+                        <li>
                         <span class = "fa-li"><i class="fa fa-calendar fa-3x"  style = "color: white" ></i></span> 
                         <h3 style = "margin-left: 40px;">Vegetarisch koken</h3>
                         <p style = "margin-left: 40px;"> Een workshop vegetarisch koken, onder leiding van trientje Hupsakee</p>
                         </li>
-                         <li>
+                        <li>
                         <span class = "fa-li"><i class="fa fa-calendar fa-3x"  style = "color: white" ></i></span> 
                         <h3 style = "margin-left: 40px;">Vegetarisch koken</h3>
                         <p style = "margin-left: 40px;"> Een workshop vegetarisch koken, onder leiding van trientje Hupsakee</p>
                         </li>
-                         <li>
+                        <li>
                         <span class = "fa-li"><i class="fa fa-calendar fa-3x"  style = "color: white" ></i></span> 
                         <h3 style = "margin-left: 40px;">Vegetarisch koken</h3>
                         <p style = "margin-left: 40px;"> Een workshop vegetarisch koken, onder leiding van trientje Hupsakee</p>
                         </li>
-                         <li>
+                        <li>
                         <span class = "fa-li"><i class="fa fa-calendar fa-3x"  style = "color: white" ></i></span> 
                         <h3 style = "margin-left: 40px;">Vegetarisch koken</h3>
                         <p style = "margin-left: 40px;"> Een workshop vegetarisch koken, onder leiding van trientje Hupsakee</p>
                         </li>
                     </ul>
-			    </div>
+                </div>
             </div>    
-			<div class="row">
-				<div class="col-md-12 p-4 m-5 login-color shadow-border">
+            <div class="row">
+                <div class="col-md-12 m-5 p-4 login-color shadow-border">
                     <div>
                     <div class="login-center"><img src = "assets/img/verrukkulluk-login.png" alt = "login header"></div>
 
                     hier komt een inlogscherm
                     </div>
-				</div>
-			</div>
-		</div>
-		
+                </div>
+            </div>
+        </div>
+        
 
-        <div class="col-md-9">
-            <div class = "row">
-                <div class = "col-md-12">
+        <div class="col-8">
                     {%  block content %}
                     {%  endblock %}
-                </div>
-            </div>
-            <div class = "row">
-                <div class = "col-md-12">
-                </div>
-            </div>
         </div>
     </div>
 
 
-    <div class="row">
+    <div class="row ">
         <div class="col-md-12 footer-color">
             <div class = "contact-center"> <img src = "assets/img/verrukkulluk-contact.png" alt = "agenda header"></div>
         </div>
     </div>
-
 
 </div>
 

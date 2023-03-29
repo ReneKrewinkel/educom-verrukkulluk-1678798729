@@ -102,9 +102,9 @@ background-color: var(--darker-red);
 /* Footer  */
 .footer-color {
 background-color: var(--darker-orange);
-width: 80%;
+/* width: 100%; */
+background-size: cover;
 height: 300px;
-margin-left: 160px;
 }
 
 .contact-center {
@@ -116,11 +116,11 @@ margin-left: 160px;
 
 /* Vegas */
 #background-image {
-    width: 1625px;    
+    width: 100%;    
     height: 700px;
     background-size: cover;
-    background-position: center;
-    overflow: hidden;
+    /* background-position: center; */
+    /* overflow: hidden; */
 }
 
 
@@ -142,6 +142,12 @@ margin-left: 160px;
     padding-right: 20px;
     padding-bottom: 35px;
 }
+
+.padding-blocks{
+    margin-left: 
+    margin-right: auto;
+}
+
 /* button */
 .button {
     position: absolute;

@@ -29,10 +29,9 @@
 {% block content %}
 
  {# Loop #}
-<div class = "container-fluid">
     <div class= "row">
         {% for record in data | slice (0, 4)%}
-                <div class = "col-md-5 m-5 shadow-border">
+                <div class = "col-sm-12 col-xl-4 m-5  shadow-border">
                 
                     <div class = "row" style = "height: 200px;">
                         <div class = "col-md-12 image-detail-home" style= "background-image: url('{{record.afbeelding}}'); ">
@@ -43,7 +42,15 @@
                             <h2 style= "color: #6e8722">{{ record.titel }}</h2>
                         </div>
                         <div class = "col-md-6">
-                        <p> sterren: {{record.waardering }}</p>
+                            <div class="">
+                                {% for i in range(1, 5) %}
+                                    {% if record.waardering|round >= i %} 
+                                        <i class="fa-sharp fa-solid fa-star fa-lg" style = "color: #fca01f" ></i>
+                                    {% else %} 
+                                        <i class="fa-regular fa-star fa-lg" style = "color: #fca01f" ></i>
+                                        {% endif %}
+                                {% endfor %}
+                            </div>
                         </div>
                     </div>
                     <div class = "row">
@@ -59,21 +66,21 @@
                         </div>
                         <div class = "col-md-6 padding-icons">
                         <div class = "icons"><i class = "fa fa-user-group fa-xl" style = "color: red"></i> 4 </div>
-                         <div class = "icons"><i class="fa-solid fa-euro-sign fa-xl" style = "color:red"></i> 5,5</div>
-                         <div class = "icons"><i class="fas fa-fire fa-xl" style = "color: red"></i> 450</div>
+                         <div class = "icons"><i class="fa-solid fa-euro-sign fa-xl" style = "color:red"></i>{{record.totaal_prijs|round(1)|number_format(2, '.', ',')}}</div>
+                         <div class = "icons"><i class="fas fa-fire fa-xl" style = "color: red"></i> {{record.kcal|round(0)}}</div>
                         </div>
                     </div> 
                 </div>
         {% endfor %}
     </div
-</div>
+
 
 
      {# Dump #}x
-       {# <pre> #}
-       {# {{dump(gerecht_id)}} #}
-        {# {{ dump(data) }} #}
-       {# </pre> #}
+       {# <pre>
+       {{dump(gerecht_id)}}
+        {{ dump(data) }}
+       </pre> #}
 
 {% endblock %}
 
