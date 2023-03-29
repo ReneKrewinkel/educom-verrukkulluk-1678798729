@@ -33,7 +33,7 @@
 {% block content %}
 <div class= "">
     <div class = "row m-5">
-        <div class = "col-md-6 shadow-border image-detail w-30">
+        <div class = "col-md-6 shadow-border image-detail w-30" style = "background-image: url('{{data.0.afbeelding}}')">
         </div>
         <div class = "col-md-6 p-5  shadow-border">
         <p> lorem ipsum </p>
@@ -45,6 +45,11 @@
         </div>
     </div>
 </div
+
+     {# Dump #}
+       <pre>
+        {{ dump(data.0.id) }}
+       </pre>
 
 
 
