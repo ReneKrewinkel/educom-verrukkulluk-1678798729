@@ -69,7 +69,7 @@ p{
 
 /* Agenda  */
 .agenda-color{
-    width: 90%;
+    width: 500px;
     height: 800px; 
     background-color: var(--lighter-green);
     /* border: 10px solid #FFF; */
@@ -85,7 +85,7 @@ p{
 
 /* Login */
 .login-color{
-width: 90%;
+width: 500px;
 height: 350px;
 background-color: var(--darker-red);
 /* border: 10px solid #FFF; */
@@ -102,7 +102,7 @@ background-color: var(--darker-red);
 /* Footer  */
 .footer-color {
 background-color: var(--darker-orange);
-/* width: 100%; */
+width: 100%;
 background-size: cover;
 height: 300px;
 }
@@ -187,9 +187,18 @@ height: 300px;
 
 /* Detail page */
 .image-detail{
-    width: 500px;
+    width: 400px;
     height: 600px;
-    background-position: 23%;
-    /* background-image: url("../img/vegan-burger.png"); */
 }
 
+.detail-background{
+    background-color: #402214;
+    width: 600px;
+    height: 600px;
+}
+
+.detail-background-below{
+    background-color: #f36421;
+    width: 1000px;
+    height: 600px;
+}
