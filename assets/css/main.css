@@ -131,12 +131,12 @@ height: 300px;
     background-size: cover;
 }
 
-.icons {
+.icons-homepage {
     float: left;
     padding-left: 20px;
 }
 
-.padding-icons{
+.padding-icons-homepage{
     padding-top: 40px;
     /* padding-left: 20px; */
     padding-right: 20px;
@@ -148,8 +148,8 @@ height: 300px;
     margin-right: auto;
 }
 
-/* button */
-.button {
+/* button homepage*/
+.button-homepage {
     position: absolute;
     background-color: var(--lighter-red);
     color: var(--white);
@@ -162,37 +162,37 @@ height: 300px;
     min-width: 120px;    
 }
 
-.button:hover{
+.button-homepage:hover{
     background-color:#95b82d;
     transition: 0.4s;
 
 }
 
-.button:focus{
+.button-homepage:focus{
     outline-color: transparent;
     outline-style: solid;
     box-shadow: 0 0 0 4px #5a01a7;
     transition: 0.5s;
 }
 
-.button:active{
+.button-homepage:active{
     background-color: var(--darker-red);
 }
-.padding-button{
+.padding-button-homepage{
     padding-top: 20px;
     padding-left: 40px;
     /* padding-right: 20px; */
     /* padding-bottom: 50px; */
 }
 
-/* Detail page */
+/* Detail pagina */
 .image-detail{
     width: 400px;
     height: 600px;
 }
 
 .detail-background{
-    background-color: #402214;
+    background-color: #dedcda;
     width: 600px;
     height: 600px;
 }
@@ -201,4 +201,46 @@ height: 300px;
     background-color: #f36421;
     width: 1000px;
     height: 600px;
+}
+
+.icons-detail{
+    float: left;
+    padding-left: 20px;
+}
+
+/* button detail pagina*/
+.button-detail {
+    position: absolute;
+    background-color: var(--lighter-red);
+    color: var(--white);
+    border:none;
+    border-radius: 35px;
+    /* box-shadow: 0px 0px 2px 2px rgba(0,0,0); */
+    padding: 0px;
+    padding-top: 6px;
+    min-height: 30px;
+    min-width: 120px;    
+}
+
+.button-detail:hover{
+    background-color:#95b82d;
+    transition: 0.4s;
+
+}
+
+.button-detail:focus{
+    outline-color: transparent;
+    outline-style: solid;
+    box-shadow: 0 0 0 4px #5a01a7;
+    transition: 0.5s;
+}
+
+.button-detail:active{
+    background-color: var(--darker-red);
+}
+.padding-button-detail{
+    padding-top: 25px;
+    padding-left: 25px;
+    /* padding-right: 20px; */
+    /* padding-bottom: 50px; */
 }

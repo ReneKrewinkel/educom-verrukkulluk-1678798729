@@ -34,7 +34,43 @@
     <div class = "row justify-content-center m-5">
         <div class = "col-sm-5 col-xl-6 shadow-border image-detail" style = "background-image: url('{{data.0.afbeelding}}')">
         </div>
-        <div class = "col-sm-7 col-xl-6 detail-background">
+        <div class = "col-sm-7 col-xl-6 p-4 detail-background">
+            <div class = "row">
+                <div class = "col-12">
+                    <div class = "icons-detail"><i class = "fa fa-user-group fa-xl" style = "color: red"></i> 4 </div>
+                    <div class = "icons-detail"><i class="fa-solid fa-euro-sign fa-xl" style = "color:red"></i>{{data.0.totaal_prijs|round(1)|number_format(2, '.', ',')}}</div>
+                    <div class = "icons-detail"><i class="fas fa-fire fa-xl" style = "color: red"></i> {{data.0.kcal|round(0)}}</div>
+                </div>
+            </div>
+            <div class = "row">
+                <div class = "col-6" style = "padding-top:30px; padding-left:32px">
+                    <h1 style= "color: #6e8722">{{data.0.titel}}</h1>
+                </div>
+                <div class = "col-6">
+                </div>
+            </div>
+            <div class = "row">
+                <div class = "col-6" style = "padding-left:32px">
+                    <h4  style= "color: #6e8722; display: inline-block">Keuken</h4> <span style = "padding-left: 30px">{{data.0.keuken}}</span>
+                </div>
+                <div class = "col-6">
+                    <h4  style= "color: #6e8722; display: inline-block">Type</h4> <span style = "padding-left: 30px">{{data.0.type}}</span>
+                </div>
+            </div>
+            <div class = "row">
+                <div class = "col-12" style = "padding-left:32px">
+                    <p>{{data.0.lange_omschrijving}}<br><br>{{data.0.lange_omschrijving}}</p>
+                </div>
+            </div>
+            <div class = "row">
+                <div class = "col-6">
+                    <div class="padding-button-detail">
+                        <a href="index.php?gerecht_id={{data.0.id}}&action=detail" ><button type = "button" class = "button-detail" ><h3>Op lijst</h3></button></a>                               
+                    </div>
+                </div>
+                <div class = "col-6">
+                </div>
+            </div>
         </div>
     </div>
     <div class = "row justify-content-center">

@@ -59,14 +59,14 @@
                     </div>
                     <div class = "row" >
                         <div class= "col-md-6">              
-                            <div class="padding-button">
-                                <a href="index.php?gerecht_id={{record.id}}&action=detail" ><button type = "button" class = "button" ><h3>Smullen!</h3></button></a>                               
+                            <div class="padding-button-homepage">
+                                <a href="index.php?gerecht_id={{record.id}}&action=detail" ><button type = "button" class = "button-homepage" ><h3>Smullen!</h3></button></a>                               
                             </div>
                         </div>
-                        <div class = "col-md-6 padding-icons">
-                        <div class = "icons"><i class = "fa fa-user-group fa-xl" style = "color: red"></i> 4 </div>
-                         <div class = "icons"><i class="fa-solid fa-euro-sign fa-xl" style = "color:red"></i>{{record.totaal_prijs|round(1)|number_format(2, '.', ',')}}</div>
-                         <div class = "icons"><i class="fas fa-fire fa-xl" style = "color: red"></i> {{record.kcal|round(0)}}</div>
+                        <div class = "col-md-6 padding-icons-homepage">
+                            <div class = "icons-homepage"><i class = "fa fa-user-group fa-xl" style = "color: red"></i> 4 </div>
+                            <div class = "icons-homepage"><i class="fa-solid fa-euro-sign fa-xl" style = "color:red"></i>{{record.totaal_prijs|round(1)|number_format(2, '.', ',')}}</div>
+                            <div class = "icons-homepage"><i class="fas fa-fire fa-xl" style = "color: red"></i> {{record.kcal|round(0)}}</div>
                         </div>
                     </div> 
                 </div>
