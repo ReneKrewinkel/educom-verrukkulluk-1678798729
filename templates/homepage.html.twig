@@ -32,7 +32,7 @@
 <div class = "container-fluid">
     <div class= "row">
         {% for record in data | slice (0, 4)%}
-                <div class = "col-md-4 m-5 agenda-border">
+                <div class = "col-md-4 m-5 shadow-border">
                     <div class = "row" style = "height: 200px;">
                         <div class = "col-md-12 image-detail-home" style= "background-image: url('{{record.afbeelding}}'); ">
                         </div>
@@ -50,14 +50,16 @@
                         <p>{{record.korte_omschrijving}} </p>
                         </div>
                     </div>
-                    <div class = "row">
+                    <div class = "row padding-homepage">
                         <div class= "col-md-6">
-                        <p> smullen knop </p>
+                            <div>
+                                <button type = "button" class = "button" > Smullen!</button>
+                            </div>
                         </div>
                         <div class = "col-md-6">
-                        <div><i class = "fa fa-user-group" style = "color: red"></i> 4 </div>
-                         <div><i class="fa-solid fa-euro-sign" style = "color:red"></i> </div>
-                         <div><i class="fas fa-fire" style = "color: red"></i></div>
+                        <div class = "icons"><i class = "fa fa-user-group fa-xl" style = "color: red"></i> 4 </div>
+                         <div class = "icons"><i class="fa-solid fa-euro-sign fa-xl" style = "color:red"></i> 5,5</div>
+                         <div class = "icons"><i class="fas fa-fire fa-xl" style = "color: red"></i> 450</div>
                         </div>
                     </div> 
                 </div>

@@ -58,9 +58,14 @@ p{
     font-size: 14px;
 }
 
+/* Algemeen */
+.shadow-border {
+    box-shadow: 2px 2px 8px #727272;
+}
+
 /* Header */
 
-/* Main page  */
+/* Main  */
 
 /* Agenda  */
 .agenda-color{
@@ -76,11 +81,6 @@ p{
     justify-content: center;
     margin-top: 20px;
 }
-
-.agenda-border {
-    box-shadow: 2px 2px 8px #727272;
-    
-  }
 
 
 /* Login */
@@ -99,8 +99,6 @@ background-color: var(--darker-red);
 }
 
 
-
-
 /* Footer  */
 .footer-color {
 background-color: var(--darker-orange);
@@ -113,7 +111,6 @@ margin-left: 160px;
     display: flex;
     height: 30%;
 }
-
 
 
 
@@ -134,6 +131,35 @@ margin-left: 160px;
     background-size: cover;
 }
 
+.icons {
+    float: right;
+    padding-left: 20px;
+}
+
+.padding-homepage{
+    padding-top: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+
+.button {
+    position: absolute;
+    background-color: var(--darker-red);
+    color: var(--kahki);
+    border:none;
+    border-radius: 10px;
+    box-shadow: 0px 0px 2px 2px rgba(0,0,0);
+    padding: 5px;
+    min-height: 30px;
+    min-width: 120px;    
+}
+
+.button:hover{
+    background-color:#95b82d;
+    transition: 0.7s;
+
+}
 
 /* Detail page */
 .image-detail{
