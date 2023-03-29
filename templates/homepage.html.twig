@@ -32,7 +32,8 @@
 <div class = "container-fluid">
     <div class= "row">
         {% for record in data | slice (0, 4)%}
-                <div class = "col-md-4 m-5 shadow-border">
+                <div class = "col-md-5 m-5 shadow-border">
+                
                     <div class = "row" style = "height: 200px;">
                         <div class = "col-md-12 image-detail-home" style= "background-image: url('{{record.afbeelding}}'); ">
                         </div>
@@ -50,13 +51,13 @@
                         <p>{{record.korte_omschrijving}} </p>
                         </div>
                     </div>
-                    <div class = "row padding-homepage">
-                        <div class= "col-md-6">
-                            <div>
-                                <button type = "button" class = "button" > Smullen!</button>
+                    <div class = "row" >
+                        <div class= "col-md-6">              
+                            <div class="padding-button">
+                                <a href="index.php?recipe_id={{record.id}}&action=detail" ><button type = "button" class = "button" ><h3>Smullen!</h3></button></a>                               
                             </div>
                         </div>
-                        <div class = "col-md-6">
+                        <div class = "col-md-6 padding-icons">
                         <div class = "icons"><i class = "fa fa-user-group fa-xl" style = "color: red"></i> 4 </div>
                          <div class = "icons"><i class="fa-solid fa-euro-sign fa-xl" style = "color:red"></i> 5,5</div>
                          <div class = "icons"><i class="fas fa-fire fa-xl" style = "color: red"></i> 450</div>
@@ -68,9 +69,26 @@
 </div>
 
 
-     {# Dump #}
-       <pre>
-        {{ dump(data) }}
-       </pre>
+     {# Dump #}x
+       {# <pre> #}
+       {# {{dump(gerecht_id)}} #}
+        {# {{ dump(data) }} #}
+       {# </pre> #}
 
 {% endblock %}
+
+
+
+
+
+
+
+
+{# TEST CODE #}
+                            {# <form method="GET" action="../index.php">  
+                                <div class="padding-button">
+                                    <input type= "hidden" name = "action" value= "detail">
+                                    <input type = "hidden" name = "gerecht_id" value = "{{record.id}}">
+                                    <button type = "button" class = "button button-padding" ><h3>Smullen!</h3></button>                                
+                                </div>
+                            </form> #}

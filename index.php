@@ -90,7 +90,6 @@ http://localhost/index.php?gerecht_id=4&action=detail
 $gerecht_id = isset($_GET["gerecht_id"]) ? $_GET["gerecht_id"] : "";
 $action = isset($_GET["action"]) ? $_GET["action"] : "homepage";
 
-
 switch($action) {
 
         case "homepage": {
@@ -101,7 +100,7 @@ switch($action) {
         }
 
         case "detail": {
-            $data = $gerecht->selecteerGerechten();
+            $data = $gerecht->selecteerGerechten(intval($gerecht_id));
             $template = 'detail.html.twig';
             $title = "detail pagina";
             break;

@@ -143,6 +143,7 @@ class gerecht{
             $isFavoriet = $this -> gerecht_info -> isFavoriet($gerecht_id, $gerechtData["user_id"]);
 
             $gerechten[] = [
+                "id" => $gerechtData["id"],
                 "titel" => $gerechtData['titel'],
                 "korte_omschrijving" => $gerechtData['korte_omschrijving'],
                 "lange_omschrijving" => $gerechtData['lange_omschrijving'],
