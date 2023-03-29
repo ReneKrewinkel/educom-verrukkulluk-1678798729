@@ -29,9 +29,9 @@
 {% block content %}
 
  {# Loop #}
-    {% for record in data %}
-        <div class = "container-fluid">
-            <div class= "row">
+<div class = "container-fluid">
+    <div class= "row">
+        {% for record in data | slice (0, 4)%}
                 <div class = "col-md-4 m-5 agenda-border">
                     <div class = "row" style = "height: 200px;">
                         <div class = "col-md-12 image-detail-home" style= "background-image: url('{{record.afbeelding}}'); ">
@@ -55,14 +55,15 @@
                         <p> smullen knop </p>
                         </div>
                         <div class = "col-md-6">
-                        <p><i class = "fa fa-user-group" style = "color: red"></i>
-                         personen, prijs, kcal</p>
+                        <div><i class = "fa fa-user-group" style = "color: red"></i> 4 </div>
+                         <div><i class="fa-solid fa-euro-sign" style = "color:red"></i> </div>
+                         <div><i class="fas fa-fire" style = "color: red"></i></div>
                         </div>
                     </div> 
                 </div>
-            </div
-        </div>
-    {% endfor %}
+        {% endfor %}
+    </div
+</div>
 
 
      {# Dump #}
