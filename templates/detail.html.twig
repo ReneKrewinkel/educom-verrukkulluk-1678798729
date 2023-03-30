@@ -5,8 +5,11 @@
 
 {% block header %}
 
-{# Vegas.js #}
+    <script src= "assets/jquery/tabs.js"></script>
+
     <script>
+       
+    {# Vegas.js #}
         $(document).ready( function() {
  
             const mySlides = [
@@ -96,6 +99,13 @@
         })
 
 
+
+
+
+
+
+
+
     </script>
 
 <div>
@@ -158,8 +168,25 @@
     </div>
     <div class = "row justify-content-center">
         <div class = "col-8 detail-background-below">
+            <div class = "tabs">
+                <div class = "tabs_sidebar">
+                    <button class = "tabs_button" data-for-tab = "1" >Tab #1</button>
+                    <button class = "tabs_button" data-for-tab = "2" >Tab #2</button>
+                    <button class = "tabs_button" data-for-tab = "3" >Tab #3</button>
+                </div>
+                <div class = "tabs_content" data-tab = "1">
+                    <p> dummy data 1 </p>
+                </div>
+                <div class = "tabs_content" data-tab = "2">
+                    <p> dummy data 2  </p>
+                </div>
+                <div class = "tabs_content" data-tab = "3">
+                    <p> dummy data 3 </p>
+                </div>
+            </div>
         </div>
     </div>
+    
      {# Dump #}
        <pre>
         {{ dump(data.0.is_favoriet) }}

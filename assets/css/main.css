@@ -269,3 +269,96 @@ height: 300px;
 .favoriet:hover{
     color: #95b82d;
 }
+
+
+/* Tabs */
+/* 
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  .container {
+    width: 1000px;
+    height: 600px;
+    left: 50%;
+    top: 120px;
+    background-color: #ffffff;
+  }
+  .tabs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  h4 {
+    background-color: #e4e9fd;
+    text-align: center;
+    padding: 15px 0;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  .tab-content {
+    background-color: #ffffff;
+    padding: 50px 40px;
+  }
+  .tab-content h4 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #000224;
+    font-weight: 600;
+  }
+  .tab-content p {
+    text-align: justify;
+    line-height: 1.9;
+    letter-spacing: 0.4px;
+    color: #202238;
+  }
+  .tab-content div {
+    display: none;
+  }
+  .tab-content .active {
+    display: block;
+  }
+  .tabs .active {
+    background-color: #ffffff;
+    color: #4d5bf9;
+  } */
+
+  .tabs {
+    border: 1px solid #5c5c5a;
+    display: flex;
+  }
+
+  .tabs_sidebar {
+    width: 125 px;
+    flex-shrink: 0;
+    background-:var(--kahki);
+  }
+
+  .tabs_button {
+    display: block;
+    padding: 10px;
+    background-color:#727272;
+    border: none;
+    width: 100%;
+    outline: none;
+    cursor: pointer;
+  }
+
+  .tabs_button:active {
+    background: #dddddd;
+  }
+
+  .tabs_button:not(:last-of-type) {
+    border-bottom: 1px solid #cccccc;
+  }
+
+  .tabs_button--active {
+ font-weight: bold;
+ border-right: 2px solid #000;
+  }
+
+  .tabs_content {
+    padding: 15px;
+    font-size: 0.8 rem;
+    display: none;
+  }
