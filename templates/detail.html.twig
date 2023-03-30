@@ -174,13 +174,16 @@
                     <button class = "tabs_button" data-for-tab = "2" >Tab #2</button>
                     <button class = "tabs_button" data-for-tab = "3" >Tab #3</button>
                 </div>
-                <div class = "tabs_content" data-tab = "1">
+                <div class = "tabs_content"  data-tab = "1">
+                    <h3> First tab heading #1</h3>
                     <p> dummy data 1 </p>
                 </div>
                 <div class = "tabs_content" data-tab = "2">
+                    <h3> Second tab heading #2</h3>
                     <p> dummy data 2  </p>
                 </div>
                 <div class = "tabs_content" data-tab = "3">
+                    <h3> Third tab heading #3</h3>
                     <p> dummy data 3 </p>
                 </div>
             </div>
@@ -191,6 +194,46 @@
        <pre>
         {{ dump(data.0.is_favoriet) }}
        </pre>
+
+    <script>
+        function setupTabs () {
+            document.querySelectorAll(".tabs_button") .forEach(button => {
+                button.addEventListener("click", () => {
+                    const sideBar = button.parentElement;
+                    const tabsContainer = sideBar.parentElement;
+                    const tabNumber = button.dataset.forTab;
+                    const tabToActivate = tabsContainer.querySelector(`.tabs_content[data-tab="${tabNumber}"]`);
+
+                    sideBar.querySelectorAll(".tabs_button") .forEach(button => {
+                        button.classList.remove("tabs_button--active");
+                    });
+                    tabsContainer.querySelectorAll(".tabs_content") .forEach(button => {
+                        button.classList.remove("tabs_content--active");
+                    });
+
+                    button.classList.add("tabs_button--active");
+                    tabToActivate.classList.add("tabs_content--active");
+                    console.log(sideBar)
+                    console.log(tabsContainer)
+                    console.log(tabNumber)
+                    console.log(tabToActivate)
+                    });
+            });
+
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            setupTabs();
+
+           
+            document.querySelectorAll(".tabs").forEach(tabsContainer => {
+                tabsContainer.querySelector(".tabs_sidebar .tabs_button") .click();
+            });
+        });
+
+
+
+    </script>
 
 
 
