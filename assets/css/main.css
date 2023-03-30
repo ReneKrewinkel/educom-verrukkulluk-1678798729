@@ -245,3 +245,27 @@ height: 300px;
     /* padding-right: 20px; */
     /* padding-bottom: 50px; */
 }
+
+
+/* waardering  */
+.star {
+    font-size: 20px;
+    color: #fca01f;
+    cursor: pointer;
+    padding-top: 55px;
+    /* width: 50px; */
+}
+
+.star:hover {
+    color: #95b82d;
+}
+
+/* favoriet */
+.favoriet{
+    color: #fca01f;
+    cursor: pointer;
+    font-size:45px;    
+}
+.favoriet:hover{
+    color: #95b82d;
+}

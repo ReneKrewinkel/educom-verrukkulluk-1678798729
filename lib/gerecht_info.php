@@ -117,6 +117,14 @@ class gerecht_info{
         return;
     }
 
+    public function toevoegenWaardering($gerecht_id, $waardering) { 
+        
+        $sql = "INSERT INTO gerecht_info (gerecht_id, record_type, nummeriekveld)
+        VALUES ($gerecht_id, 'W', $waardering)";
+
+        return($this->connection->query($sql));
+    }
+
 
 }
 

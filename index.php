@@ -89,6 +89,9 @@ http://localhost/index.php?gerecht_id=4&action=detail
 
 $gerecht_id = isset($_GET["gerecht_id"]) ? $_GET["gerecht_id"] : "";
 $action = isset($_GET["action"]) ? $_GET["action"] : "homepage";
+$rating = isset($_GET["rating"]) ? $_GET["rating"] : "";
+$user_id = 1;
+
 
 switch($action) {
 
@@ -113,8 +116,15 @@ switch($action) {
             break;
         }
 
-        case "favoriet": {
-            $data = $gerecht->selecteerFavoriet($user_id);
+        case "toevoegenFavoriet": {
+            $gerecht_info->voegFavorietToe($gerecht_id, $user_id);
+            $template = 'detail.html.twig';
+            $title = "detail pagina";
+            break;
+        }
+
+        case "verwijderFavoriet": {
+            $gerecht_info->verwijderFavoriet($gerecht_id, $user_id);
             $template = 'detail.html.twig';
             $title = "detail pagina";
             break;
@@ -127,8 +137,8 @@ switch($action) {
             break;
         }
 
-        case "waardering": {
-            $data = $gerecht -> berekenWaardering($gerecht_id);
+        case "toevoegenWaardering": {
+            $gerecht_info -> toevoegenWaardering($gerecht_id, $rating);
             $template = 'detail.html.twig';
             $title = "detail pagina";
             break;
@@ -148,3 +158,4 @@ $template = $twig->load($template);
 
 /// En tonen die handel!
 echo $template->render(["title" => $title, "data" => $data]);
+?>

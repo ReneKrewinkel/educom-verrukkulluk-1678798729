@@ -94,7 +94,7 @@ class gerecht{
             $waardering = 0;
         }
         
-        return $waardering;
+        return (int) round($waardering);
     }
 
     private function berekenPrijs($gerecht_id){

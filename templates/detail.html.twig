@@ -1,4 +1,5 @@
 {# opnemen van de main file#}
+
 {% extends "main.html.twig" %}
 
 {% block header %}
@@ -14,15 +15,58 @@
             $("#background-image").vegas({
                 overlay: 'vegas/overlays/02.png',
                 slides: mySlides,
+            })
+
+// Waardering functies
+            $('.star').each((index,elem) => {
+                const waardering = {{data.0.waardering}}
+                console.log(`gem waardering is: ${waardering}`)
+                const itemValue = $(elem).attr('data-value')
+                if (itemValue <= waardering) {
+                    $(elem).addClass('fas')
+                }
+            })
+    
+            $(".star").click( function() {
+                const rating = $(this).attr('data-value')
+                console.log(`Value: ${rating}`)
+
+                //Clear all the red stars
+                $(".star").removeClass('fas')
+
+                // Paint it red!
+                $('.star').each((index,elem) => {
+                    const itemValue = $(elem).attr('data-value')
+                    if (itemValue <= rating) {
+                        $(elem).addClass('fas')
+                    }
+                })
+
+                $.ajax({
+                    url: "./index.php",
+                    method: "GET",
+                    data: {
+                        action: "toevoegenWaardering",
+                        gerecht_id: {{data.0.id}},
+                        rating: rating},
+                        success: function(data) {
+                            console.log(rating)
+
+                            // location.reload()
+                    }
                 })
             })
+
+
+             
+            
+        })
 
 
     </script>
 
 <div>
 
-{# <img src = "assets/img/logo-v2.png" alt = "verrukkulluk logo"/> #}
 
 </div>
 {% endblock %}
@@ -47,6 +91,11 @@
                     <h1 style= "color: #6e8722">{{data.0.titel}}</h1>
                 </div>
                 <div class = "col-4">
+                    <i class="far fa-star star" data-value = "1"></i>
+                    <i class="far fa-star star" data-value = "2"></i>
+                    <i class="far fa-star star" data-value = "3"></i>
+                    <i class="far fa-star star" data-value = "4"></i>
+                    <i class="far fa-star star" data-value = "5"></i>
                 </div>
             </div>
             <div class = "row">
@@ -69,6 +118,7 @@
                     </div>
                 </div>
                 <div class = "col-6">
+                    <i class = " far fa-heart favoriet" data-value = "1"></i>
                 </div>
             </div>
         </div>
@@ -78,9 +128,9 @@
         </div>
     </div>
      {# Dump #}
-       {# <pre>
-        {{ dump(data.0.id) }}
-       </pre> #}
+       <pre>
+        {{ dump(data.0.waardering) }}
+       </pre>
 
 
 
