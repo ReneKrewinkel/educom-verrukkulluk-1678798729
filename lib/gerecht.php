@@ -140,7 +140,7 @@ class gerecht{
             $opmerkingData = $this -> selecteerOpmerkingen($gerecht_id);
             $bereidingData = $this -> selecteerBereiding($gerecht_id);
             $favorietData = $this -> selecteerFavoriet($gerecht_id);
-            $isFavoriet = $this -> gerecht_info -> isFavoriet($gerecht_id, $gerechtData["user_id"]);
+        $isFavoriet = $this -> gerecht_info -> isFavoriet($gerecht_id, 1/*$gerechtData["user_id"]*/);
 
             $gerechten[] = [
                 "id" => $gerechtData["id"],

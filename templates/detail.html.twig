@@ -1,5 +1,6 @@
 {# opnemen van de main file#}
 
+
 {% extends "main.html.twig" %}
 
 {% block header %}
@@ -57,7 +58,39 @@
                 })
             })
 
+            // Favoriet functies
+            $(".favoriet").click( function() {
+                const favoriet = $(this).attr('data-value')
+                const check = true
+                console.log(check)
 
+                // Check huidige favoriet status
+                // if (check){
+                //     $(this).addClass('fas')
+                //     console.log("is favoriet")
+                // }
+
+                // Maak favoriet
+                    if (favoriet == 1) {
+                        $(this).addClass('fas')
+                    }
+                
+
+                $.ajax({
+                    url: "./index.php",
+                    method: "GET",
+                    data: {
+                        action: "toevoegenFavoriet",
+                        gerecht_id: {{data.0.id}}
+                    },
+                    success: function(data) {
+
+                    console.log(`success: ${data}`)
+
+                        // location.reload()
+                    }
+                })
+            })
              
             
         })
@@ -129,7 +162,7 @@
     </div>
      {# Dump #}
        <pre>
-        {{ dump(data.0.waardering) }}
+        {{ dump(data.0.is_favoriet) }}
        </pre>
 
 
