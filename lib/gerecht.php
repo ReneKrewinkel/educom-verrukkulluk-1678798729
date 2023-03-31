@@ -152,7 +152,7 @@ class gerecht{
                 "auteur" => $userData['user_name'],
                 "keuken" => $keukenData["omschrijving"],
                 "type" => $typeData["omschrijving"],
-                "ingredient" => $ingredientData,
+                "ingredienten" => $ingredientData,
                 "kcal" => $this -> berekenKcal($gerecht_id),
                 "totaal_prijs" => $this -> berekenPrijs($gerecht_id),
                 "waardering" => $this -> berekenWaardering($gerecht_id),

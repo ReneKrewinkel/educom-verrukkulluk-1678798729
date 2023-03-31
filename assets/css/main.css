@@ -267,25 +267,59 @@ height: 300px;
 }
 
 
+.ingredient_content {
+    padding-top:20px;
+}
+.ingredient_content img {
+    float: left;
+    width: 140px;
+    height: 140px;
+    /* background: #555; */
+  }
+
+.ingredient_content h4 {
+        position: relative;
+        top: 18px;
+        color: #6e8722;
+        padding-bottom: 13px;
+      }
+
+.ingredient_content h6{
+    display: inline-block;
+    color: #6e8722;
+    padding-bottom: 14px;
+}
+
+.ingredient_content p{
+    margin-bottom: 4px;
+}
+
+
+
+.bereiding_content{
+    padding-left: 20px;
+}
+
+
+/* Tabs */
   .tabs {
     /* border: 2px solid #eeeeee; */
     background: #FFF;
+    min-width: 730px;
     
+   
   }
 
   .tabs_sidebar {
     width: 800px;
-    /* height: 125px; */
-    align-items: center;
-    justify-content: space-around;
     flex-shrink: 0;
     background:#FFF;
   }
 
   .tabs_button {
     display: inline-block;
-    padding-top: 10px;
-    background:#bfbbbb;
+    padding-top: 5px;
+    background:#FFF;
     border: none;
     width: 30%;
     outline: none;
@@ -295,27 +329,21 @@ height: 300px;
 
   }
 
-  .tabs_button:active {
-    background: #dddddd;
-    box-shadow: 2px 2px 8px #727272;
-  }
 
-  .tabs_button:not(:last-of-type) {
-    /* border-bottom: 1px solid #cccccc; */
-  }
+
 
   .tabs_button--active {
     font-weight: bold;
-    border-bottom: 2px solid var(--darker-green);
-    background: #dddddd
+    border-bottom: 3px solid var(--darker-green);
+    background:#FFF;
   }
 
   .tabs_content {
     padding: 15px;
-    font-size: 0.8 rem;
+    height: 600px;
     display: none;
-    border: 2px solid #eeeeee;
-    box-shadow: 2px 2px 8px #727272;
+    background: #FFF;
+    overflow-y:scroll;
   }
 
   .tabs_content--active{
@@ -324,4 +352,16 @@ height: 300px;
 
   .tabs_content > first-child  {
     margin-top: 0;
+  }
+
+  .tab_scroll_bar{
+    min-width: 730px;
+    background: #FFF;
+    height: 50px;
+    text-align: center;
+    color: var(--darker-green);
+  }
+
+  .tabs_shadow {
+    box-shadow: 2px 2px 8px #727272;
   }
