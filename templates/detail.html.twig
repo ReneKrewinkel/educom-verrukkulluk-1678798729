@@ -161,7 +161,7 @@
                 <div class = "col-6">
                     <i class = " far fa-heart favoriet" data-value = "1"></i>
                 </div>
-            </div>ingredient_content
+            </div>
         </div>
     </div>
     <div class = "row justify-content-center">
@@ -198,8 +198,7 @@
                                 <h6> Hoeveelheid: </h6> {{ ingredient.aantal }} {{ ingredient.eenheid}}
                             </div>
                         {% endfor %}
-  
-                        
+
                     </div>
                     <div class = "tabs_content" data-tab = "2">
                         {% for bereiding in data.0.bereidingen %}       
@@ -232,9 +231,9 @@
     </div>
     
      {# Dump #}
-       <pre>
+       {# <pre>
         {{ dump(data.0.opmerkingen) }}
-       </pre>
+       </pre> #}
 
     <script>
         
