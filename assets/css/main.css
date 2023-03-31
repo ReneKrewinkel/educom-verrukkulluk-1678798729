@@ -58,11 +58,6 @@ p{
     font-size: 14px;
 }
 
-/* Algemeen */
-.shadow-border {
-    box-shadow: 2px 2px 8px #727272;
-}
-
 /* Header */
 
 /* Main  */
@@ -71,16 +66,16 @@ p{
 .agenda-color{
     position: relative;
     left: 10%;
-    min-width: 350px;
+    min-width: 250px;
     max-width: 350px;
-    height: 800px; 
+    /* height: 800px;  */
     background-color: var(--lighter-green);
-    /* border: 10px solid #FFF; */
+    box-shadow: 2px 2px 8px #727272;
 }
 
 .agenda-center{
     display: flex;
-    height: 15%;
+    height: 90px;
     justify-content: center;
     margin-top: 20px;
 }
@@ -94,7 +89,7 @@ min-width: 350px;
 max-width: 350px;
 height: 350px;
 background-color: var(--darker-red);
-/* border: 10px solid #FFF; */
+box-shadow: 2px 2px 8px #727272;
 }
 
 
@@ -154,7 +149,7 @@ height: 300px;
     display: flex;
     height: 35%;
     position: relative;
-    left: 250px;
+    padding-left:190px;
     top: -65px;
 }
 
@@ -163,14 +158,14 @@ height: 300px;
     position: relative;
     width: 125px;
     height: 125px;
-    left: 70px;
+    margin-left: 40px;
     top: 50px;
 }
 
 .contact_text {
     color: #FFF;
     position: relative;
-    left: 260px;
+    padding-left:200px;
     top: -65px;
     font-family: "Arial";
 }
@@ -188,6 +183,12 @@ height: 300px;
 
 
 /* home page */
+
+.homepage_recept{
+    box-shadow: 2px 2px 8px #727272;
+    min-width: 450px;
+
+}
 .image-detail-home{
     display:flex;
     background-position: center;
@@ -195,7 +196,7 @@ height: 300px;
 }
 
 .icons-homepage {
-    float: left;
+    float: right;
     padding-left: 20px;
 }
 
@@ -206,10 +207,15 @@ height: 300px;
     padding-bottom: 35px;
 }
 
-.padding-blocks{
+/* .padding-blocks{
     margin-left: 
     margin-right: auto;
+} */
+
+.rating_homepage{
+    padding-top: 12px;
 }
+
 
 /* button homepage*/
 .button-homepage {
@@ -249,14 +255,23 @@ height: 300px;
 }
 
 /* Detail pagina */
+
+.detail_box{
+    box-shadow: 2px 2px 8px #727272;
+    min-width: 1000px;
+    max-width: 1000px;
+    min-height: 600px;
+
+}
+
 .image-detail{
-    width: 400px;
+   width: 400px;
     height: 600px;
     background-position: 23%;
 }
 
 .detail-background{
-    background-color: #dedcda;
+    background-color: #FFF;
     width: 600px;
     height: 600px;
 }
@@ -368,8 +383,11 @@ height: 300px;
   .tabs {
     /* border: 2px solid #eeeeee; */
     background: #FFF;
-    min-width: 730px;
+    min-width: 1000px;
+    max-width: 1000px;
     padding-bottom: 100px;
+    margin-left: 50px;
+
     
    
   }

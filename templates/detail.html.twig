@@ -11,13 +11,9 @@
         $(document).ready( function() {
  
             const mySlides = [
-                { src: "assets/img/vegan-burger.png" }
+                { src: "{{data.0.afbeelding}}", title: "Title #1", subtitle: "Subtitle #1" }
             ]
-        
-            $("#background-image").vegas({
-                overlay: 'vegas/overlays/02.png',
-                slides: mySlides,
-            })
+            Vegas(mySlides)
 
 // Waardering functies
             $('.star').each((index,elem) => {
@@ -116,8 +112,8 @@
 {#content detail page#}
 
 {% block content %}
-    <div class = "row justify-content-center m-5">
-        <div class = "col-sm-5 col-xl-6 shadow-border image-detail" style = "background-image: url('{{data.0.afbeelding}}')">
+    <div class = "row m-5 detail_box">
+        <div class = "col-sm-5 col-xl-6 image-detail" style = "background-image: url('{{data.0.afbeelding}}')">
         </div>
         <div class = "col-sm-7 col-xl-6 p-4 detail-background">
             <div class = "row">
@@ -164,7 +160,7 @@
             </div>
         </div>
     </div>
-    <div class = "row justify-content-center">
+    <div class = "row">
         <div class = "col-8">
             <div class = "tabs">
                 <div class = "tabs_sidebar">

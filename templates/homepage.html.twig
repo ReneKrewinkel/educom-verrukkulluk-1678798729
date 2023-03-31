@@ -4,23 +4,15 @@
 {% block header %}
 {# Vegas.js #}
     <script>
-        $(document).ready( function() {
- 
-            const mySlides = [
-                { src: "https://picsum.photos/id/1/1900/1200", title: "Title #1", subtitle: "Subtitle #1" },
-                { src: "https://picsum.photos/id/10/1900/1200", title: "Title #2", subtitle: "Subtitle #2"  },
-                { src: "https://picsum.photos/id/100/1900/1200", title: "Title #3", subtitle: "Subtitle #3"  },
-                { src: "https://picsum.photos/id/1000/1900/1200", title: "Title #4", subtitle: "Subtitle #4"  },
-            ]
-        
-            $("#background-image").vegas({
-                overlay: 'vegas/overlays/02.png',
-                slides: mySlides,
-                })
-            })
-
-
+        const mySlides = [
+                    { src: "https://hips.hearstapps.com/hmg-prod/images/vegan-food-list-1563809023.png", title: "Title #1", subtitle: "Subtitle #1" },
+                    { src: "https://file-cdn.mercyforanimals.org/mercy4animals.wpengine.com/sites/445/2018/11/Healthy-Foods-1440x570.jpg", title: "Title #3", subtitle: "Subtitle #3" },
+                    { src: "https://images.unsplash.com/photo-1540914124281-342587941389?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dmVnYW4lMjBmb29kfGVufDB8fDB8fA%3D%3D&w=1000&q=80", title: "Title #2", subtitle: "Subtitle #2" },
+                    { src: "https://www.foodandwine.com/thmb/9AqvuDWttUQIl_6G5MRv3-2sts0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/green-pasta-FT-RECIPE0521-510d065cf45940fdb4e86b76000cfd80.jpg", title: "Title #4", subtitle: "Subtitle #4" },
+                ]
+        Vegas(mySlides)
     </script>
+    
 
 {% endblock %}
 
@@ -29,19 +21,22 @@
 {% block content %}
 
  {# Loop #}
-    <div class= "row justify-content-around">
+    <div class= "row justify-content-center" style = "padding-left:50px; padding-right: -100px;" >
         {% for record in data | slice (0, 4)%}
-                <div class = "col-sm-12 col-xl-4 m-5  shadow-border">
-                    <div class = "row" style = "height: 200px;">
-                        <div class = "col-md-12 image-detail-home" style= "background-image: url('{{record.afbeelding}}'); ">
-                        </div>
-                    </div>
+                
+                <div class = "col-sm-12 col-lg-4 m-5  homepage_recept">
+                    <a href="index.php?gerecht_id={{record.id}}&action=detail">
+                        <div class = "row" style = "height: 200px;">
+                            <div class = "col-md-12 image-detail-home" style= "background-image: url('{{record.afbeelding}}'); ">
+                            </div>
+                        </div>  
+                    </a>
                     <div class= "row p-3">
-                        <div class= "col-md-6">
+                        <div class= "col-sm-7 col-md-7 col-lg-7">
                             <h2 style= "color: #6e8722">{{ record.titel }}</h2>
                         </div>
-                        <div class = "col-md-6">
-                            <div class="">
+                        <div class = "col-xm-5 col-md-5 col-lg-5">
+                            <div class = "rating_homepage">
                                 {% for i in range(1, 5) %}
                                     {% if record.waardering|round >= i %} 
                                         <i class="fa-sharp fa-solid fa-star fa-lg" style = "color: #fca01f" ></i>
@@ -58,12 +53,12 @@
                         </div>
                     </div>
                     <div class = "row" >
-                        <div class= "col-md-6">              
+                        <div class= "col-md-3">              
                             <div class="padding-button-homepage">
                                 <a href="index.php?gerecht_id={{record.id}}&action=detail" ><button type = "button" class = "button-homepage" ><h3>Smullen!</h3></button></a>                               
                             </div>
                         </div>
-                        <div class = "col-md-6 padding-icons-homepage">
+                        <div class = "col-md-9 padding-icons-homepage">
                             <div class = "icons-homepage"><i class = "fa fa-user-group fa-xl" style = "color: red"></i> 4 </div>
                             <div class = "icons-homepage"><i class="fa-solid fa-euro-sign fa-xl" style = "color:red"></i>{{record.totaal_prijs|round(1)|number_format(2, '.', ',')}}</div>
                             <div class = "icons-homepage"><i class="fas fa-fire fa-xl" style = "color: red"></i> {{record.kcal|round(0)}}</div>
