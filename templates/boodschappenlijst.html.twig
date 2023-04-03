@@ -5,12 +5,36 @@
 {% block header %}
 
 <script>
-$(document).ready( function() {
+    $(document).ready( function() {
  
-            const mySlides = [
-                { src: "{{data.0.afbeelding}}", title: "Title #1", subtitle: "Subtitle #1" }
-            ]
-            Vegas(mySlides)
+        const mySlides = [
+            { src: "{{data.0.afbeelding}}", title: "Title #1", subtitle: "Subtitle #1" }
+        ]
+        Vegas(mySlides)
+
+
+
+        $(".trash").click (function() {
+            $.ajax({
+                url: "./index.php",
+                method: "GET",
+                data:{
+                    action: ,
+                },
+                    success: function() {
+
+                    }
+                
+            })
+        })
+
+
+
+
+
+
+
+            
 })
 
 </script>
@@ -25,11 +49,26 @@ $(document).ready( function() {
             <div class = "rol-12">
             <h1 style= "color: var(--darker-green); font-size: 84px;"> Boodschappen</h1>
             </div>
-            <div class = "col-12">
-            <pre>
+            <div class = "col-12 ">
             
+
+            {% for boodschap in data %}
+                <div class = "boodschappenlijst">
+                    <img src = "{{ boodschap.artikel_data.afbeelding }}" />
+                    <h2>{{boodschap.artikel_data.naam}} </h2>
+                    <p>{{boodschap.artikel_data.omschrijving}} </p>
+                    <form method = "GET" action = "">
+                        <input type = "text" name = "aantal" value= "{{boodschap.boodschap_data.bestelAantal}}">
+                    </form>
+                    <i class="fa-solid fa-euro-sign fa-2x euro" style = "color: var(--darker-red)"></i>
+                    <div> {{boodschap.artikel_data.prijs}}</div>
+                    <i class="fa-solid fa-check fa-3x check" style = "color: var(--darker-green)"></i>
+                    <i class="fa-solid fa-trash-can fa-3x trash" style = "color: var(--darker-red)"></i>
+                    
+                
+                </div>
+            {% endfor %}
             
-            </pre>
             </div>
         </div>
         <div class = "row">

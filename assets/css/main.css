@@ -452,8 +452,88 @@ height: 300px;
   /* Boodschappenlijst */
 
   .box_boodschappenlijst{
-    background-color: orange;
+    background-color: #FFF;
+    box-shadow: 2px 2px 8px #727272;
     width: 100%; 
     min-width: 900px;
     height: 1000px;
   }
+
+  .boodschappenlijst {
+    position:relative;
+    padding-bottom: 205px;
+  }
+
+
+  .boodschappenlijst img{
+    float: left;
+    width: 200px;
+    height: 200px;
+    padding-bottom: 20px; 
+  }
+
+  .boodschappenlijst h2{
+    position: absolute;
+    color: var(--darker-green);
+    left: 220px;
+    width: 600px;
+    top:30px;
+  }
+
+  .boodschappenlijst p {
+    position: absolute;
+    left: 220px;
+    top:90px;
+    width: 600px;
+  }
+
+  .boodschappenlijst i{
+    position: absolute;
+    right: 10px;
+   
+  }
+   .boodschappenlijst input {
+    color: var(--darker-green);
+    border: 1px solid #cccccc;
+    width: 70px;
+    height: 40px;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+    position: absolute;
+    right: 20px;
+    font-weight: bolder;
+    font-size: 20px;
+   }
+
+   .boodschappenlijst i.euro{
+    position: absolute;
+    left: 980;
+    top: 70px; 
+   }
+
+   .boodschappenlijst i.check{
+    position: absolute;
+    left: 1120;
+    top: 66px; 
+   }
+
+   .boodschappenlijst i.trash{
+    position: absolute;
+    left: 1200;
+    top: 66px; 
+   }
+
+   .boodschappenlijst form {
+    position: absolute;
+    left: 950px;
+    top: 70px; 
+   }
+
+   .boodschappenlijst div{
+    position: absolute;
+    left: 1008;
+    top: 69px;
+    font-size: 25px;
+   }
+   
