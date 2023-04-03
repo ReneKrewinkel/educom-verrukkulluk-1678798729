@@ -15,11 +15,16 @@
 
 
         $(".trash").click (function() {
+            let trash = $(this).attr('data-value')
+            
+
             $.ajax({
                 url: "./index.php",
                 method: "GET",
                 data:{
-                    action: ,
+                    action: "verwijderBoodschap",
+                    user_id: ,
+                    artikel_id: 
                 },
                     success: function() {
 
@@ -50,19 +55,21 @@
             <h1 style= "color: var(--darker-green); font-size: 84px;"> Boodschappen</h1>
             </div>
             <div class = "col-12 ">
-            
+            {% set i = 0 %}
 
             {% for boodschap in data %}
+                {% set i = i + 1 %}
                 <div class = "boodschappenlijst">
                     <img src = "{{ boodschap.artikel_data.afbeelding }}" />
                     <h2>{{boodschap.artikel_data.naam}} </h2>
                     <p>{{boodschap.artikel_data.omschrijving}} </p>
+                    
                     <form method = "GET" action = "">
                         <input type = "text" name = "aantal" value= "{{boodschap.boodschap_data.bestelAantal}}">
                     </form>
                     <i class="fa-solid fa-euro-sign fa-2x euro" style = "color: var(--darker-red)"></i>
                     <div> {{boodschap.artikel_data.prijs}}</div>
-                    <i class="fa-solid fa-check fa-3x check" style = "color: var(--darker-green)"></i>
+                    <i class="fa-solid fa-check fa-3x check" style = "color: var(--darker-green)" data-value = "{{i}}" ></i>
                     <i class="fa-solid fa-trash-can fa-3x trash" style = "color: var(--darker-red)"></i>
                     
                 
@@ -75,5 +82,10 @@
         </div>
     </div>
 </div>
+
+ {# Dump #}
+       <pre>
+        {{ dump(i) }}
+       </pre>
 
 {% endblock %}

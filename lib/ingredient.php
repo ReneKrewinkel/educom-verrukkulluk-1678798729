@@ -16,9 +16,11 @@ class ingredient{
     }
 
     public function selecteerIngredient($gerecht_id) {
+        
         $ingredienten = [];
         $sql = "SELECT * FROM ingredient WHERE gerecht_id = $gerecht_id";
-
+        
+        // echo "$gerecht_id <br>";
         $result = mysqli_query($this->connection, $sql);
         // $ingredient = mysqli_fetch_array($result, MYSQLI_ASSOC); 
 
@@ -44,6 +46,8 @@ class ingredient{
             
 
         }
+        
         return ($ingredienten);
+        
     }
 }

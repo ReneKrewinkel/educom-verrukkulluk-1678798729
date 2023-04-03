@@ -83,8 +83,8 @@ class boodschappenlijst{
     
 
     public function toevoegenBoodschappenRecept($gerecht_id, $user_id){
+        
         $ingredienten = $this -> ophalenIngredient($gerecht_id);
-
         foreach ($ingredienten as $ingredient) {
             $artikel_id = $ingredient["artikel_id"];
             if(($this -> artikelOpLijst($artikel_id, $user_id))!= FALSE){                    
@@ -92,8 +92,7 @@ class boodschappenlijst{
                 $sql = "UPDATE boodschappenlijst 
                     SET bestelAantal= $bestelAantal, ingebruik= $ingebruik
                     WHERE user_id = $user_id AND artikel_id = $artikel_id";
-                    mysqli_query($this -> connection, $sql);                
-                    echo "boodschap geupdate <br>";
+                    mysqli_query($this -> connection, $sql);   
                     
             }else{
                 list($bestelAantal, $ingebruik) = $this -> boodschappenAantal($ingredient, $user_id);
@@ -101,7 +100,6 @@ class boodschappenlijst{
                 (user_id, artikel_id, bestelAantal, ingebruik) 
                 VALUES($user_id, $artikel_id, $bestelAantal, $ingebruik)";
                 mysqli_query($this -> connection, $sql);
-                echo" boodschap toegevoegd <br>";
             }
         }
     }

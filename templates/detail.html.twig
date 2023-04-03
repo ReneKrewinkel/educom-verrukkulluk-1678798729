@@ -92,9 +92,8 @@
                             },
                             success: function(data) {
 
-                            console.log(`success: ${data}`)
-
-                        // location.reload()
+                                console.log(`success: ${data}`)
+                                // location.reload()
                             } 
                         })
                     } else {
@@ -164,8 +163,9 @@
             </div>
             <div class = "row">
                 <div class = "col-6">
+                    
                     <div class="padding-button-detail">
-                        <a href="index.php?gerecht_id={{data.0.user_id}}&action=boodschappenlijst" ><button type = "button" class = "button-detail" ><h3>Op lijst</h3></button></a>                               
+                        <a href="index.php?gerecht_id={{data.0.id}}&action=boodschappenlijst" ><button type = "button" class = "button-detail" ><h3>Op lijst</h3></button></a>                               
                     </div>
                 </div>
                 <div class = "col-6">
@@ -242,7 +242,7 @@
     
      {# Dump #}
        <pre>
-        {{ dump(data.0.is_favoriet) }}
+        {{ dump(data.0.id) }}
        </pre>
 
     <script>

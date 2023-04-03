@@ -69,13 +69,17 @@ switch($action) {
         case "boodschappenlijst": {
             $boodschappen -> toevoegenBoodschappenRecept($gerecht_id, $user_id);
             $data = $boodschappen -> ophalenDataBoodschappenlijstUser($user_id);
-            // echo "<pre>";
-            // var_dump($data);
-            // die;
-
             $template = 'boodschappenlijst.html.twig';
             $title = 'Boodschappenlijst';
             break;
+        }
+
+        case "verwijderBoodschap": {
+            $boodschappen -> verwijderBoodschap($user_id, $artikel_id);
+            $data = $boodschappen -> ophalenDataBoodschappenlijstUser($user_id);
+            $template = 'boodschappenlijst.html.twig';
+            $title = 'Boodschappenlijst';
+            break; 
         }
 
         case "toevoegenFavoriet": {
