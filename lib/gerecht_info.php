@@ -38,12 +38,12 @@ class gerecht_info{
     }
 
     public function isFavoriet($gerecht_id, $user_id){
-        $favoriet = FALSE;
+        $favoriet = 0;
         $sql = "SELECT * FROM gerecht_info WHERE record_type = 'F' AND gerecht_id = $gerecht_id AND user_id = $user_id"; 
         $query = mysqli_query( $this -> connection, $sql);
         $result = mysqli_fetch_array($query, MYSQLI_ASSOC);
         if ($result != NULL){
-            $favoriet = TRUE;
+            $favoriet = 1;
         } 
         // $gerecht_info = $this -> gerecht_info -> selecteerGerechtInfo($gerecht_id);
         // foreach($gerecht_info as $item) {
@@ -105,7 +105,7 @@ class gerecht_info{
     // }
 
     public function verwijderFavoriet($gerecht_id, $user_id){
-        $checkFavoriet = $this -> isFavoriet($gerecht_id, user_id);
+        $checkFavoriet = $this -> isFavoriet($gerecht_id, $user_id);
         $sql = "DELETE FROM gerecht_info 
         WHERE gerecht_id = $gerecht_id 
         AND record_type = 'F' 

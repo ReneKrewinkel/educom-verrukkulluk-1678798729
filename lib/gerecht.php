@@ -145,6 +145,7 @@ class gerecht{
             $gerechten[] = [
                 "id" => $gerechtData["id"],
                 "titel" => $gerechtData['titel'],
+                "is_favoriet" => $isFavoriet,
                 "korte_omschrijving" => $gerechtData['korte_omschrijving'],
                 "lange_omschrijving" => $gerechtData['lange_omschrijving'],
                 "afbeelding" => $gerechtData['afbeelding'],
@@ -158,7 +159,7 @@ class gerecht{
                 "waardering" => $this -> berekenWaardering($gerecht_id),
                 "opmerkingen" => $opmerkingData,
                 "bereidingen" => $bereidingData,
-                "is_favoriet" => $isFavoriet,
+                
             ];
         }
         return($gerechten);

@@ -186,7 +186,7 @@ height: 300px;
 
 .homepage_recept{
     box-shadow: 2px 2px 8px #727272;
-    min-width: 450px;
+    /* min-width: 450px; */
 
 }
 .image-detail-home{

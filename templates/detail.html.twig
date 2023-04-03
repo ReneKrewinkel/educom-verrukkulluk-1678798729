@@ -29,7 +29,7 @@
                 const rating = $(this).attr('data-value')
                 console.log(`Value: ${rating}`)
 
-                //Clear all the red stars
+                //Clear the stars
                 $(".star").removeClass('fas')
 
                 // Paint it red!
@@ -56,38 +56,70 @@
             })
 
             // Favoriet functies
-            $(".favoriet").click( function() {
-                const favoriet = $(this).attr('data-value')
-                const check = true
-                console.log(check)
+             // Check huidige favoriet status
+        let statusFavoriet = false
+        
+        
+        // console.log(${favoriet})
+           function selecteerAlsFavoriet(){
 
-                // Check huidige favoriet status
-                // if (check){
-                //     $(this).addClass('fas')
-                //     console.log("is favoriet")
-                // }
+                 let yn = {{data.0.is_favoriet}} === 0 ? false : true
+              
+                // console.log({{data.0.is_favoriet}})
+                if (yn){
+                    $(".favoriet").addClass('fas')
+                    console.log("is favoriet")
+                    statusFavoriet = true
+                }
+            }
+            selecteerAlsFavoriet()
+
+
+            $(".favoriet").click( function() {
+                let favoriet = $(this).attr('data-value')
 
                 // Maak favoriet
-                    if (favoriet == 1) {
+                    if (favoriet == 1 && statusFavoriet == false) {
                         $(this).addClass('fas')
-                    }
-                
+                        statusFavoriet = true
 
-                $.ajax({
-                    url: "./index.php",
-                    method: "GET",
-                    data: {
-                        action: "toevoegenFavoriet",
-                        gerecht_id: {{data.0.id}}
-                    },
-                    success: function(data) {
+                        $.ajax({
+                            url: "./index.php",
+                            method: "GET",
+                            data: {
+                                action: "toevoegenFavoriet",
+                                gerecht_id: {{data.0.id}}
+                            },
+                            success: function(data) {
 
-                    console.log(`success: ${data}`)
+                            console.log(`success: ${data}`)
 
                         // location.reload()
+                            } 
+                        })
+                    } else {
+                        $(this).removeClass('fas')
+                        statusFavoriet = false
+
+                        $.ajax({
+                            url: "./index.php",
+                            method: "GET",
+                            data: {
+                                action: "verwijderFavoriet",
+                                gerecht_id: {{data.0.id}}
+                            },
+                            success: function(data) {
+
+                            console.log(`success: ${data}`)
+
+                        // location.reload()
+                            } 
+                        })
+
                     }
-                })
+                    
             })
+            
              
             
         })
@@ -227,9 +259,9 @@
     </div>
     
      {# Dump #}
-       {# <pre>
-        {{ dump(data.0.opmerkingen) }}
-       </pre> #}
+       <pre>
+        {{ dump(data.0.is_favoriet) }}
+       </pre>
 
     <script>
         

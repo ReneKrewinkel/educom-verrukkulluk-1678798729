@@ -26,7 +26,6 @@
     <script>
         function Vegas(mySlides) {
             $("#background-image").vegas({
-                overlay: 'vegas/overlays/02.png',
                 slides: mySlides,
                 })
         }
@@ -94,7 +93,7 @@
 
 
         <div class="row">
-            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
+            <div class="col-sm-12 col-md-3 ">
                 <div class="row">
                     <div class="col-md-12 p-4 m-5  agenda-color shadow-border">
                         <div class="agenda-center"><img src = "assets/img/verrukkulluk-agenda.png" alt = "agenda header">
@@ -129,16 +128,16 @@
                     </div>
                 </div>    
                 <div class="row">
-                    <div class="col-md-12 m-5 p-4 login-color shadow-border">
+                    <div class="col-sm-12 col-md-3 m-5 p-4 login-color shadow-border">
                         <div>
                             <div class="login-center"><img src = "assets/img/verrukkulluk-login.png" alt = "login header">
                             </div>
                             <div>
                                 <form method = "GET" action = "action" class = "login-text">
                                     Email <br>
-                                    <input type = "text" name = "Email"  size = "50" style = "margin-bottom: 10px;"> <br>
+                                    <input type = "text" name = "Email"  size = "40" style = "margin-bottom: 10px;"> <br>
                                     Wachtwoord<br>
-                                    <input type = "text" name = "wachtwoord" size = "50"><br><br>
+                                    <input type = "text" name = "wachtwoord" size = "40"><br><br>
                                     <h2><input type = "button" value = "Log in" class = "button-login"></h2>
                                 </form>
                             </div>
@@ -146,7 +145,7 @@
                     </div>
                 </div>
             </div>
-            <div class = "col-sm-12 col-md-6 col-lg-6 col-xl-8">
+            <div class = "col-sm-12 col-md-8 col-lg-8 col-xl-8">
                 {%  block content %}
                 {%  endblock %}
             </div>

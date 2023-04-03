@@ -151,6 +151,10 @@ switch($action) {
 }
 
 
+// echo "<pre>";
+// var_dump($data);
+// die();
+
 /// Onderstaande code schrijf je idealiter in een layout klasse of iets dergelijks
 /// Juiste template laden, in dit geval "homepage"
 $template = $twig->load($template);
