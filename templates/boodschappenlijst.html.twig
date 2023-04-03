@@ -1,0 +1,27 @@
+{# Opnemen main files #}
+
+{% extends "main.html.twig" %}
+
+{% block header %}
+
+<script>
+$(document).ready( function() {
+ 
+            const mySlides = [
+                { src: "{{data.0.afbeelding}}", title: "Title #1", subtitle: "Subtitle #1" }
+            ]
+            Vegas(mySlides)
+})
+
+</script>
+
+{% endblock %}
+
+{#content boodschappenlijst pagina#}
+{% block content %}
+<div class = "row m-5 detail_box">
+    <div class = "col-12 image-detail" style= "background-color: orange; widht: 600px; height: 900px;">
+    </div>
+</div>
+
+{% endblock %}

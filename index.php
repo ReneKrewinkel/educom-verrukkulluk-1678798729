@@ -90,6 +90,7 @@ http://localhost/index.php?gerecht_id=4&action=detail
 $gerecht_id = isset($_GET["gerecht_id"]) ? $_GET["gerecht_id"] : "";
 $action = isset($_GET["action"]) ? $_GET["action"] : "homepage";
 $rating = isset($_GET["rating"]) ? $_GET["rating"] : "";
+
 $user_id = 1;
 
 
@@ -110,8 +111,8 @@ switch($action) {
         }
 
         case "boodschappenlijst": {
-            $data = $boodschappen -> ophalenBoodschappenlijstUser($user_id);
-            $template = 'detail.html.twig';
+            $data = $boodschappen -> toevoegenBoodschappenRecept($gerecht_id, $user_id);
+            $template = 'boodschappenlijst.html.twig';
             $title = 'Boodschappenlijst';
             break;
         }

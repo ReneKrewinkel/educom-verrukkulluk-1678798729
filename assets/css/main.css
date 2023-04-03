@@ -64,9 +64,9 @@ p{
 
 /* Agenda  */
 .agenda-color{
-    position: relative;
+    /* position: relative; */
     left: 10%;
-    min-width: 250px;
+    min-width: 350px;
     max-width: 350px;
     /* height: 800px;  */
     background-color: var(--lighter-green);
@@ -83,10 +83,10 @@ p{
 
 /* Login */
 .login-color{
-position: relative;
+/* position: relative; */
 left: 10%;
 min-width: 350px;
-max-width: 350px;
+max-width: 350px; 
 height: 350px;
 background-color: var(--darker-red);
 box-shadow: 2px 2px 8px #727272;
