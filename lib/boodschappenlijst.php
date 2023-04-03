@@ -22,10 +22,25 @@ class boodschappenlijst{
 
     private function ophalenBoodschappenlijstUser($user_id){
         $sql = "SELECT * FROM boodschappenlijst WHERE user_id = $user_id";
-        $boodschappenlijstUser = mysqli_query($this -> connection, $sql);
-        return $boodschappenlijstUser;
+        $result = mysqli_query($this -> connection, $sql);
+        while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) { // mysql_fetch_array() returns false when no more rows are available --> no looping increment needed
+            $boodschappenUser[] = $row;
+        }
+        return $boodschappenUser;
     }
 
+    public function ophalenDataBoodschappenlijstUser($user_id){
+        $boodschappenlijst = $this -> ophalenBoodschappenlijstUser ($user_id);
+        foreach ($boodschappenlijst as $boodschap) {
+            $artikel_data = $this -> ophalenArtikel($boodschap["artikel_id"]);
+            $boodschappendata[] = [
+                "boodschap_data" => $boodschap,
+                "artikel_data" => $artikel_data,
+            ];
+        }
+        return $boodschappendata;
+    }
+    
     private function ophalenBoodschapUser($artikel_id, $user_id){
         $sql = "SELECT * FROM boodschappenlijst WHERE artikel_id = $artikel_id AND user_id = $user_id";
         $result = mysqli_query($this -> connection, $sql);
@@ -97,6 +112,7 @@ class boodschappenlijst{
         foreach($boodschappen as $boodschap){
             if ($boodschap["artikel_id"] == $artikel_id){
                 return $boodschap;
+                var_dump($boodschap);
             }
         }
     }

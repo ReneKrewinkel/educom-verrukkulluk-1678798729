@@ -447,3 +447,13 @@ height: 300px;
   .tabs_shadow {
     box-shadow: 2px 2px 8px #727272;
   }
+
+
+  /* Boodschappenlijst */
+
+  .box_boodschappenlijst{
+    background-color: orange;
+    width: 100%; 
+    min-width: 900px;
+    height: 1000px;
+  }
