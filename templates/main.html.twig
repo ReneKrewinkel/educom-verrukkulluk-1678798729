@@ -98,7 +98,8 @@
 
 
 
-            function verwijderBoodschap(user_id, artikel_id) {                
+            function verwijderBoodschap(user_id, artikel_id) {
+
                 $.ajax({
                     url: "./index.php",
                     method: "GET",
@@ -107,23 +108,25 @@
                         user_id: user_id,
                         artikel_id: artikel_id},
                     success: function(data) {
+                        location.reload();
                     }
                 })  
             }
 
-            function toevoegenBoodschappenGerecht(gerecht_id) {                
+            function toevoegenBoodschappenGerecht(gerecht_id) {  
+                console.log("toegevoegd")              
+
                 $.ajax({
                     url: "./index.php",
                     method: "GET",
                     data: {
                         action: "toevoegenBoodschappenGerecht",
-                        artikel_id: artikel_id},
+                        gerecht_id: gerecht_id},
                     success: function(data) {
                     }
                 })  
             }
 
-            toevoegenBoodschappenGerecht
 
 
             function openenBoodschappenlijst() {
