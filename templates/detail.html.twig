@@ -41,19 +41,19 @@
             //     })
 
             //     $.ajax({
-                    url: "./index.php",
-                    method: "GET",
-                    data: {
-                        action: "toevoegenWaardering",
-                        gerecht_id: {{data.0.id}},
-                        rating: rating},
-                        success: function(data) {
-                            console.log(rating)
+            //         url: "./index.php",
+            //         method: "GET",
+            //         data: {
+            //             action: "toevoegenWaardering",
+            //             gerecht_id: {{data.0.id}},
+            //             rating: rating},
+            //             success: function(data) {
+            //                 console.log(rating)
 
-                            // location.reload()
-                    }
-                })
-            })
+            //                 // location.reload()
+            //         }
+            //     })
+            // })
 
             // Favoriet functies
              // Check huidige favoriet status
@@ -167,7 +167,7 @@
                 <div class = "col-6">
                     
                     <div class="padding-button-detail">
-                        <a href="index.php?gerecht_id={{data.0.id}}&action=boodschappenlijst" ><button type = "button" class = "button-detail" ><h3>Op lijst</h3></button></a>                               
+                        <button type = "button" class = "button-detail" onclick = "openenBoodschappenlijst()"><h3>Op lijst</h3></button>                              
                     </div>
                 </div>
                 <div class = "col-6">

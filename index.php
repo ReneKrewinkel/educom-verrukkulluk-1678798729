@@ -69,6 +69,14 @@ switch($action) {
         }
 
         case "boodschappenlijst": {
+            // $boodschappen -> toevoegenBoodschappenRecept($gerecht_id, $user_id);
+            $data = $boodschappen -> ophalenDataBoodschappenlijstUser($user_id);
+            $template = 'boodschappenlijst.html.twig';
+            $title = 'Boodschappenlijst';
+            break;
+        }
+
+        case "toevoegenBoodschappenGerecht": {
             $boodschappen -> toevoegenBoodschappenRecept($gerecht_id, $user_id);
             $data = $boodschappen -> ophalenDataBoodschappenlijstUser($user_id);
             $template = 'boodschappenlijst.html.twig';

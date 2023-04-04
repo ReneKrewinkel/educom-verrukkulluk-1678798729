@@ -107,10 +107,34 @@
                         user_id: user_id,
                         artikel_id: artikel_id},
                     success: function(data) {
-                        location.reload();
-
                     }
                 })  
+            }
+
+            function toevoegenBoodschappenGerecht(gerecht_id) {                
+                $.ajax({
+                    url: "./index.php",
+                    method: "GET",
+                    data: {
+                        action: "toevoegenBoodschappenGerecht",
+                        artikel_id: artikel_id},
+                    success: function(data) {
+                    }
+                })  
+            }
+
+            toevoegenBoodschappenGerecht
+
+
+            function openenBoodschappenlijst() {
+                $.ajax({
+                    url: "./index.php",
+                    method: "GET",
+                    data: {
+                        action: "boodschappenlijst"},
+                    success: function(){
+                    }
+                })
             }
 
 
