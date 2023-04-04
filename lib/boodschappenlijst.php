@@ -52,7 +52,7 @@ class boodschappenlijst{
         $artikelData = $this -> ophalenArtikel($artikel_id);      
         $ingebruik = $nieuwAantal * $artikelData["verpakking"];
         $sql = "UPDATE boodschappenlijst 
-                SET bestelAantal = $nieuwAantal AND ingebruik = $ingebruik  /* $nieuwAantal moet nog uit de front-end geladen worden*/
+                SET bestelAantal = $nieuwAantal, ingebruik = $ingebruik  /* $nieuwAantal moet nog uit de front-end geladen worden*/
                 WHERE user_id = $user_id AND artikel_id = $artikel_id" ;
         mysqli_query($this -> connection, $sql);
     }

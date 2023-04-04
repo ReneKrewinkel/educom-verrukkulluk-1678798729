@@ -8,8 +8,8 @@
     $(document).ready( function() {
  
         const mySlides = [
-            { src: "{{data.0.afbeelding}}", title: "Title #1", subtitle: "Subtitle #1" }
-        ]
+                    { src: "https://hips.hearstapps.com/hmg-prod/images/vegan-food-list-1563809023.png", title: "Title #1", subtitle: "Subtitle #1" },
+                    ]
         Vegas(mySlides)
 
 
@@ -39,8 +39,11 @@
                     <h2>{{boodschap.artikel_data.naam}} </h2>
                     <p>{{boodschap.artikel_data.omschrijving}} </p>
                     
-                    <form method = "GET" action = "">
-                        <input type = "text" name = "aantal" value= "{{boodschap.boodschap_data.bestelAantal}}">
+                    <form method = "GET" action = "./index.php">
+                        <input type = "hidden" name = "action" value = "updateBoodschapAantal">
+                        <input type = "hidden" name = "artikel_id" value = "{{boodschap.boodschap_data.artikel_id}}">
+                        <input type = "hidden" name = "user_id" value = "{{boodschap.boodschap_data.user_id}}">
+                        <input type = "text" name = "nieuwAantal" value= "{{boodschap.boodschap_data.bestelAantal}}">
                     </form>
                     <i class="fa-solid fa-euro-sign fa-2x euro" style = "color: var(--darker-red)"></i>
                     <div> {{boodschap.artikel_data.prijs}}</div>
@@ -61,7 +64,7 @@
 
  {# Dump #}
        <pre>
-        {{ dump(data.0.boodschap_data.user_id) }}
+        {{ dump(data.0.boodschap_data) }}
        </pre>
 
 {% endblock %}

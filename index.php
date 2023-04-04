@@ -47,6 +47,7 @@ $gerecht_id = isset($_GET["gerecht_id"]) ? $_GET["gerecht_id"] : "";
 $action = isset($_GET["action"]) ? $_GET["action"] : "homepage";
 $waardering = isset($_GET["waardering"]) ? $_GET["waardering"] : "";
 $artikel_id = isset($_GET["artikel_id"]) ? $_GET["artikel_id"] : "";
+$nieuwAantal = isset($_GET["nieuwAantal"]) ? $_GET["nieuwAantal"] : "";
 
 
 $user_id = 1;
@@ -69,7 +70,6 @@ switch($action) {
         }
 
         case "boodschappenlijst": {
-            // $boodschappen -> toevoegenBoodschappenRecept($gerecht_id, $user_id);
             $data = $boodschappen -> ophalenDataBoodschappenlijstUser($user_id);
             $template = 'boodschappenlijst.html.twig';
             $title = 'Boodschappenlijst';
@@ -85,22 +85,25 @@ switch($action) {
         case "verwijderBoodschap": {
             $boodschappen -> verwijderBoodschap($user_id, $artikel_id);
             $data = $boodschappen -> ophalenDataBoodschappenlijstUser($user_id);
-            $template = 'boodschappenlijst.html.twig';
-            $title = 'Boodschappenlijst';
             break; 
         }
 
+        case "updateBoodschapAantal": {
+            $boodschappen -> updateBoodschapAantal($artikel_id, $user_id, $nieuwAantal);
+            $data = $boodschappen -> ophalenDataBoodschappenlijstUser($user_id);
+            $template = 'boodschappenlijst.html.twig';
+            $title = 'Boodschappenlijst';
+            break;
+        }
+        
+
         case "toevoegenFavoriet": {
             $gerecht_info->voegFavorietToe($gerecht_id, $user_id);
-            $template = 'detail.html.twig';
-            $title = "detail pagina";
             break;
         }
 
         case "verwijderFavoriet": {
             $gerecht_info->verwijderFavoriet($gerecht_id, $user_id);
-            $template = 'detail.html.twig';
-            $title = "detail pagina";
             break;
         }
 
@@ -113,8 +116,6 @@ switch($action) {
 
         case "toevoegenWaardering": {
             $gerecht_info -> toevoegenWaardering($gerecht_id, $waardering);
-            $template = 'detail.html.twig';
-            $title = "detail pagina";
             break;
         }
 
