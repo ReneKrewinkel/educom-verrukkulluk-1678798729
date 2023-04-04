@@ -13,34 +13,11 @@
         Vegas(mySlides)
 
 
-
-        $(".trash").click (function() {
-            let trash = $(this).attr('data-value')
-            
-
-            $.ajax({
-                url: "./index.php",
-                method: "GET",
-                data:{
-                    action: "verwijderBoodschap",
-                    user_id: ,
-                    artikel_id: 
-                },
-                    success: function() {
-
-                    }
-                
-            })
-        })
-
-
-
-
-
-
-
             
 })
+
+
+
 
 </script>
 
@@ -55,10 +32,8 @@
             <h1 style= "color: var(--darker-green); font-size: 84px;"> Boodschappen</h1>
             </div>
             <div class = "col-12 ">
-            {% set i = 0 %}
 
             {% for boodschap in data %}
-                {% set i = i + 1 %}
                 <div class = "boodschappenlijst">
                     <img src = "{{ boodschap.artikel_data.afbeelding }}" />
                     <h2>{{boodschap.artikel_data.naam}} </h2>
@@ -70,8 +45,9 @@
                     <i class="fa-solid fa-euro-sign fa-2x euro" style = "color: var(--darker-red)"></i>
                     <div> {{boodschap.artikel_data.prijs}}</div>
                     <i class="fa-solid fa-check fa-3x check" style = "color: var(--darker-green)" data-value = "{{i}}" ></i>
-                    <i class="fa-solid fa-trash-can fa-3x trash" style = "color: var(--darker-red)"></i>
-                    
+                    <div class = "" onclick= "verwijderBoodschap({{boodschap.boodschap_data.user_id}}, {{boodschap.artikel_data.id}})" >
+                        <i class="fa-solid fa-trash-can fa-3x trash" style = ""></i>
+                    </div>
                 
                 </div>
             {% endfor %}
@@ -85,7 +61,7 @@
 
  {# Dump #}
        <pre>
-        {{ dump(i) }}
+        {{ dump(data.0.boodschap_data.user_id) }}
        </pre>
 
 {% endblock %}

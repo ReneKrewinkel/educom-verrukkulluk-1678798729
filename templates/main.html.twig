@@ -69,6 +69,23 @@
         });
 
 
+
+            function verwijderBoodschap(user_id, artikel_id) {
+                console.log("aangeroepen")
+                
+                $.ajax({
+                    url: "./index.php",
+                    method: "GET",
+                    data: {
+                        action: "verwijderBoodschap",
+                        user_id: user_id,
+                        artikel_id: artikel_id},
+                    success: function(data) {
+                    }
+                })  
+            }
+
+
     </script>
 
 

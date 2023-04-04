@@ -455,7 +455,7 @@ height: 300px;
     background-color: #FFF;
     box-shadow: 2px 2px 8px #727272;
     width: 100%; 
-    min-width: 900px;
+    min-width: 1350px;
     height: 1000px;
   }
 
@@ -520,8 +520,15 @@ height: 300px;
 
    .boodschappenlijst i.trash{
     position: absolute;
-    left: 1200;
-    top: 66px; 
+    left: 250;
+    top: -10px; 
+    color: var(--darker-red)
+   }
+
+   .boodschappenlijst i.trash:hover {
+    color: var(--darker-green);
+    cursor: pointer;
+    transition: 0.5s;
    }
 
    .boodschappenlijst form {

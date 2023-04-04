@@ -46,6 +46,8 @@ http://localhost/index.php?gerecht_id=4&action=detail
 $gerecht_id = isset($_GET["gerecht_id"]) ? $_GET["gerecht_id"] : "";
 $action = isset($_GET["action"]) ? $_GET["action"] : "homepage";
 $rating = isset($_GET["rating"]) ? $_GET["rating"] : "";
+$artikel_id = isset($_GET["artikel_id"]) ? $_GET["artikel_id"] : "";
+
 
 $user_id = 1;
 
