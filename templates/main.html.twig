@@ -160,6 +160,7 @@
 
         function loadSearchData() {
             // Data to be used in the searchbar
+
             let countries = [
             'Australia',
             'Austria',
@@ -172,10 +173,23 @@
             'USA',
             'Vietnam'
             ];
+
+            var data = $.ajax({
+                    url: "./index.php",
+                    method: "GET",
+                    data: {
+                        action: "zoeken"},
+                    success: function(data){
+                        return data;
+                    }
+                })
+            
+
+
             // Get the HTML element of the list
             let list = document.getElementById('search_list');
             // Add each data item as an <a> tag
-            countries.forEach((country)=>{
+            data.forEach((country)=>{
                 let a = document.createElement("a");
                 a.innerText = country;
                 a.classList.add("listItem");

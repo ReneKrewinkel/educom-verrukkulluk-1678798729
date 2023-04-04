@@ -115,9 +115,9 @@ switch($action) {
         }
 
         case "zoeken": {
-            // $data = );
-            $template = 'detail.html.twig';
-            $title = "detail pagina";
+            $data = $gerecht->selecteerGerechten();
+            $template = 'homepage.html.twig';
+            $title = "homepage";
             break;
         }
 
