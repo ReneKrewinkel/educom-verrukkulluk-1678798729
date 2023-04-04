@@ -88,6 +88,13 @@ switch($action) {
             break; 
         }
 
+        case "verwijderBoodschappenlijstUser": {
+            $boodschappen -> leegmakenBoodschappen($user_id);
+            $data = $boodschappen -> ophalenDataBoodschappenlijstUser($user_id);
+            break; 
+        }
+
+
         case "updateBoodschapAantal": {
             $boodschappen -> updateBoodschapAantal($artikel_id, $user_id, $nieuwAantal);
             $data = $boodschappen -> ophalenDataBoodschappenlijstUser($user_id);

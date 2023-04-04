@@ -26,9 +26,9 @@
 {#content boodschappenlijst pagina#}
 {% block content %}
 <div class = "row m-5">
-    <div class = "col-12 box_boodschappenlijst" >
+    <div class = "col-12 box_boodschappenlijst p-5" >
         <div class = "row">
-            <div class = "rol-12">
+            <div class = "rol-12 ">
             <h1 style= "color: var(--darker-green); font-size: 84px;"> Boodschappen</h1>
             </div>
             <div class = "col-12 ">
@@ -45,11 +45,11 @@
                         <input type = "hidden" name = "user_id" value = "{{boodschap.boodschap_data.user_id}}">
                         <input type = "text" name = "nieuwAantal" value= "{{boodschap.boodschap_data.bestelAantal}}">
                     </form>
-                    <i class="fa-solid fa-euro-sign fa-2x euro" style = "color: var(--darker-red)"></i>
+                    <i class="fa-solid fa-euro-sign fa-2x euro"></i>
                     <div> {{boodschap.artikel_data.prijs}}</div>
                     <i class="fa-solid fa-check fa-3x check" style = "color: var(--darker-green)" data-value = "{{i}}" ></i>
-                    <div class = "" onclick= "verwijderBoodschap({{boodschap.boodschap_data.user_id}}, {{boodschap.artikel_data.id}})" >
-                        <i class="fa-solid fa-trash-can fa-3x trash" style = ""></i>
+                    <div onclick= "verwijderBoodschap({{boodschap.boodschap_data.user_id}}, {{boodschap.artikel_data.id}})" >
+                        <i class="fa-solid fa-trash-can fa-2x trash"></i>
                     </div>
                 
                 </div>
@@ -57,14 +57,31 @@
             
             </div>
         </div>
-        <div class = "row">
+        <div class = "row boodschappenlijst_totaal">
+            <div class = "col-12">
+                <hr class = "totaal">
+                <h1> Totaal </h1>
+                <div onclick = "verwijderBoodschappenlijstUser({{1}})">
+                    <i class="fa-solid fa-trash-can fa-3x trash"></i>
+                </div>
+                 <i class="fa-solid fa-euro-sign fa-3x euro"></i>
+
+                 <div class = "totaalPrijs">
+                    {% set totaalPrijs = 0 %}
+                    {% for boodschap in data %}
+                        {% set totaalPrijs = totaalPrijs + boodschap.artikel_data.prijs * boodschap.boodschap_data.bestelAantal %}
+                    {% endfor %}
+                    {{totaalPrijs}}
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
 
  {# Dump #}
        {# <pre>
-        {{ dump(data.0.boodschap_data) }}
+        {{ dump(data.0) }}
        </pre> #}
 
 {% endblock %}

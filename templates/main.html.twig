@@ -2,7 +2,7 @@
 <head>
 
     <title>Het is verrukkulluk! {{ TITEL }} </title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" name="viewport" content="width=device-width, initial-scale=1"/>
 
     <link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/fonts.css" />
@@ -61,6 +61,7 @@
 
         document.addEventListener("DOMContentLoaded", () => {
             setupTabs();
+            loadSearchData();
 
            
             document.querySelectorAll(".tabs").forEach(tabsContainer => {
@@ -113,6 +114,20 @@
                 })  
             }
 
+            function verwijderBoodschappenlijstUser(user_id) {
+
+                $.ajax({
+                    url: "./index.php",
+                    method: "GET",
+                    data: {
+                        action: "verwijderBoodschappenlijstUser",
+                        user_id: user_id},
+                    success: function(data) {
+                        location.reload();
+                    }
+                })  
+            }
+
             function toevoegenBoodschappenGerecht(gerecht_id) {  
                 console.log("toegevoegd")              
 
@@ -123,6 +138,7 @@
                         action: "toevoegenBoodschappenGerecht",
                         gerecht_id: gerecht_id},
                     success: function(data) {
+                        window.location = "index.php?action=boodschappenlijst"
                     }
                 })  
             }
@@ -192,7 +208,7 @@
 
 </head>
 </html>
-<body onload="loadSearchData()">
+<body>
 
 
 

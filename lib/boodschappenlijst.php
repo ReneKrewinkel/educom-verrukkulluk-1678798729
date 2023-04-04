@@ -21,6 +21,7 @@ class boodschappenlijst{
     }
 
     private function ophalenBoodschappenlijstUser($user_id){
+        $boodschappenUser = [];
         $sql = "SELECT * FROM boodschappenlijst WHERE user_id = $user_id";
         $result = mysqli_query($this -> connection, $sql);
         while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) { // mysql_fetch_array() returns false when no more rows are available --> no looping increment needed
@@ -30,6 +31,7 @@ class boodschappenlijst{
     }
 
     public function ophalenDataBoodschappenlijstUser($user_id){
+        $boodschappendata = [];
         $boodschappenlijst = $this -> ophalenBoodschappenlijstUser ($user_id);
         foreach ($boodschappenlijst as $boodschap) {
             $artikel_data = $this -> ophalenArtikel($boodschap["artikel_id"]);
@@ -66,7 +68,7 @@ class boodschappenlijst{
     public function leegmakenBoodschappen($user_id){
         $sql = "DELETE FROM boodschappenlijst
         WHERE user_id = $user_id";
-        myswli_query($this->connection, $sql);
+        mysqli_query($this->connection, $sql);
     }
 
 

@@ -413,11 +413,11 @@ height: 300px;
   }
 
 .ingredient_content h4 {
-        position: relative;
-        top: 18px;
-        color: #6e8722;
-        padding-bottom: 13px;
-      }
+    position: relative;
+    top: 18px;
+    color: #6e8722;
+    padding-bottom: 13px;
+    }
 
 .ingredient_content h6{
     display: inline-block;
@@ -508,101 +508,148 @@ height: 300px;
 
   /* Boodschappenlijst */
 
-  .box_boodschappenlijst{
+.box_boodschappenlijst{
     background-color: #FFF;
     box-shadow: 2px 2px 8px #727272;
-    width: 100%; 
+    width: 1350px; 
     min-width: 1350px;
-    height: 1000px;
-  }
+    height: 1120px;
+    overflow-y:scroll;
+}
 
-  .boodschappenlijst {
+
+
+.boodschappenlijst {
     position:relative;
     padding-bottom: 205px;
-  }
+}
 
 
-  .boodschappenlijst img{
-    float: left;
-    width: 200px;
-    height: 200px;
-    padding-bottom: 20px; 
-  }
+    .boodschappenlijst img{
+        float: left;
+        width: 200px;
+        height: 200px;
+        padding-bottom: 20px; 
+    }
 
-  .boodschappenlijst h2{
-    position: absolute;
-    color: var(--darker-green);
-    left: 220px;
-    width: 600px;
-    top:30px;
-  }
+    .boodschappenlijst h2{
+        position: absolute;
+        color: var(--darker-green);
+        left: 220px;
+        width: 400px;
+        top:30px;
+    }
 
-  .boodschappenlijst p {
-    position: absolute;
-    left: 220px;
-    top:90px;
-    width: 600px;
-  }
+    .boodschappenlijst p {
+        position: absolute;
+        left: 220px;
+        top:90px;
+        width: 400px;
+    }
 
-  .boodschappenlijst i{
-    position: absolute;
-    right: 10px;
+    .boodschappenlijst i{
+        position: absolute;
+        right: 10px;
+    }
+
+    .boodschappenlijst input {
+        color: var(--darker-green);
+        border: 1px solid #cccccc;
+        width: 70px;
+        height: 40px;
+        cursor: pointer;
+        text-align: center;
+        display: inline-block;
+        position: absolute;
+        right: 200px;
+        font-weight: bolder;
+        font-size: 20px;
+    }
+
+    .boodschappenlijst i.euro{
+        position: absolute;
+        color: var(--darker-red);
+        left: 780;
+        top: 70px; 
+    }
+
+    .boodschappenlijst i.check{
+        position: absolute;
+        left: 920px;
+        top: 66px; 
+    }
+
+    .boodschappenlijst i.trash{
+        position: absolute;
+        left: 200px;
+        top: -10px; 
+        color: var(--darker-red)
+    }
+
+    .boodschappenlijst i.trash:hover {
+        color: var(--darker-green);
+        cursor: pointer;
+        transition: 0.5s;
+    }
+
+    .boodschappenlijst form {
+        position: absolute;
+        left: 950px;
+        top: 70px; 
+    }
+
+    .boodschappenlijst div{
+        position: absolute;
+        left: 820px;
+        top: 69px;
+        font-size: 25px;
+    }
+    
+
+hr.totaal {
+    border-top: 5px solid var(--darker-green);
+    width: 1250px;
+}
+
+
+.boodschappenlijst_totaal{
+    position: relative;
+}
    
-  }
-   .boodschappenlijst input {
-    color: var(--darker-green);
-    border: 1px solid #cccccc;
-    width: 70px;
-    height: 40px;
-    cursor: pointer;
-    text-align: center;
-    display: inline-block;
-    position: absolute;
-    right: 20px;
-    font-weight: bolder;
-    font-size: 20px;
-   }
+    .boodschappenlijst_totaal h1{
+        position: absolute;
+        left: 20px;
+        top: 50px;
+        color: var(--darker-green);
+        font-size: 84px;
+    }
 
-   .boodschappenlijst i.euro{
-    position: absolute;
-    left: 980;
-    top: 70px; 
-   }
+    .boodschappenlijst_totaal i.trash{
+        color: var(--darker-red);
+        position: absolute;
+        left: 1000px;
+        top: 70px;
+    }
 
-   .boodschappenlijst i.check{
-    position: absolute;
-    left: 1120;
-    top: 66px; 
-   }
+    .boodschappenlijst_totaal i.trash:hover {
+        color: var(--darker-green);
+        cursor: pointer;
+        transition: 0.5s;
+    }
 
-   .boodschappenlijst i.trash{
-    position: absolute;
-    left: 250;
-    top: -10px; 
-    color: var(--darker-red)
-   }
+    .boodschappenlijst_totaal i.euro{
+        color: var(--darker-red);
+        position: absolute;
+        left: 800px;
+        top: 70px;
+    }
 
-   .boodschappenlijst i.trash:hover {
-    color: var(--darker-green);
-    cursor: pointer;
-    transition: 0.5s;
-   }
-
-   .boodschappenlijst form {
-    position: absolute;
-    left: 950px;
-    top: 70px; 
-   }
-
-   .boodschappenlijst div{
-    position: absolute;
-    left: 1008;
-    top: 69px;
-    font-size: 25px;
-   }
-   
-
-
-   
+    .boodschappenlijst_totaal div.totaalPrijs{
+        position: absolute;
+        font-size: 28px;
+        left: 840px;
+        top: 70px;
+    }
+    
 
 
