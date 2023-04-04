@@ -141,19 +141,75 @@
             }
 
 
+
+        function loadSearchData() {
+            // Data to be used in the searchbar
+            let countries = [
+            'Australia',
+            'Austria',
+            'Brazil',
+            'Canada',
+            'Denmark',
+            'Egypt',
+            'France',
+            'Germany',
+            'USA',
+            'Vietnam'
+            ];
+            // Get the HTML element of the list
+            let list = document.getElementById('search_list');
+            // Add each data item as an <a> tag
+            countries.forEach((country)=>{
+                let a = document.createElement("a");
+                a.innerText = country;
+                a.classList.add("listItem");
+                list.appendChild(a);
+            })
+        }
+
+        function zoeken() {
+            let listContainer = document.getElementById('search_list');
+            let listItems = document.getElementsByClassName('listItem');
+            let input = document.getElementById('searchbar').value;
+            input = input.toLowerCase();
+            let noResults = true;
+            for (i = 0; i < listItems.length; i++) { 
+                if (!listItems[i].innerHTML.toLowerCase().includes(input) || input === "") {
+                    listItems[i].style.display="none";
+                    continue;
+                } else {
+                    listItems[i].style.display="flex";
+                    noResults = false; 
+                }
+            }
+            listContainer.style.display = noResults ? "none" : "block";
+        }
+        
+
     </script>
 
 
 
 </head>
 </html>
-<body>
+<body onload="loadSearchData()">
+
+
 
     <div class="container-fluid">
         <div id = "background-image">
             <div class="row ">
-                <div class="col-12" >
-                    <a href="http://localhost/educom-verrukkulluk-1678798729/index.php"> <img src="assets/img/logo-v2.png"/> </a>
+                <div class="col-12 header_container" >
+                    
+                    <a href="http://localhost/educom-verrukkulluk-1678798729/index.php"> <img src="assets/img/logo-v2.png" class = "logo_header"/> </a>
+                    <div class="search_container">
+                        <form class="form">
+                            <input id="searchbar" type="text" onkeyup="zoeken()" 
+                            name = "search" placeholder="search..." autocomplete="off"/>
+                            <div id="search_list"></div>
+                        </form>
+                    </div>
+                    
                     {% block header %}
                     {% endblock %}   
                 </div>
