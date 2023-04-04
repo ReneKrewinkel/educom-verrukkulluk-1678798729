@@ -45,7 +45,7 @@ http://localhost/index.php?gerecht_id=4&action=detail
 
 $gerecht_id = isset($_GET["gerecht_id"]) ? $_GET["gerecht_id"] : "";
 $action = isset($_GET["action"]) ? $_GET["action"] : "homepage";
-$rating = isset($_GET["rating"]) ? $_GET["rating"] : "";
+$waardering = isset($_GET["waardering"]) ? $_GET["waardering"] : "";
 $artikel_id = isset($_GET["artikel_id"]) ? $_GET["artikel_id"] : "";
 
 
@@ -106,7 +106,7 @@ switch($action) {
         }
 
         case "toevoegenWaardering": {
-            $gerecht_info -> toevoegenWaardering($gerecht_id, $rating);
+            $gerecht_info -> toevoegenWaardering($gerecht_id, $waardering);
             $template = 'detail.html.twig';
             $title = "detail pagina";
             break;

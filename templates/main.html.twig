@@ -69,10 +69,36 @@
         });
 
 
+            function waarderingGerecht(gerecht_id, waardering) {                
+                $.ajax({
+                    url: "./index.php",
+                    method: "GET",
+                    data: {
+                        action: "toevoegenWaardering",
+                        gerecht_id: gerecht_id,
+                        waardering: waardering},
+                    success: function(data) {
+                        //Clear the stars
+                        console.log(`data is: ${waardering}`)
+                        $(".star").removeClass('fas')
+                        $(".star") .removeClass ('far')
+                        $('.star').each((index, elem) => {
+                            const itemValue = $(elem).attr('data-value')
+                            console.log(`itemValue is: ${itemValue}`)
+                            if (itemValue <= waardering) {
+                                console.log(`itemValue is: ${itemValue}`)
+                                $(elem).addClass('fas')
+                            } else {
+                                $(elem).addClass('far')
+                            }   
+                        })
+                    }
+                })  
+            }
 
-            function verwijderBoodschap(user_id, artikel_id) {
-                console.log("aangeroepen")
-                
+
+
+            function verwijderBoodschap(user_id, artikel_id) {                
                 $.ajax({
                     url: "./index.php",
                     method: "GET",
@@ -81,6 +107,8 @@
                         user_id: user_id,
                         artikel_id: artikel_id},
                     success: function(data) {
+                        location.reload();
+
                     }
                 })  
             }
