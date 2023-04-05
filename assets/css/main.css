@@ -104,14 +104,14 @@ input[type=text] {
 
 
 
-#search_list {
+.searchResults {
     border: 1px solid lightgrey;
     border-radius: 5px;
     display: none;
     background-color: #FFF;
     }
 
-    .listItem {
+    /* .listItem {
     display: flex;
     flex-direction: column;
     text-decoration: none;
@@ -121,7 +121,7 @@ input[type=text] {
     .listItem:hover {
     background-color: lightgrey;
     cursor: pointer;
-    }
+    } */
 
 
 /* Main  */
