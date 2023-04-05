@@ -81,20 +81,35 @@ p{
 
 /* Search bar */
 
-.search_container {
+#zoekContainer {
     padding: 100px 25%;
-    color: #d8138d;
+    color: var(--darker-green);
     display: flex;
     /* float: right; */
     position: absolute;
     top: 1px;
     left: 400px;
+    cursor: pointer;
+}
+#zoekbalk{
+    position:relative;
 
 }
 
-#searchbar {
-    padding: 15px;
+#zoekbalk i {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: var(--darker-red);
+  }
+
+
+#zoekopdracht {
+    padding: 5px;
     border-radius: 50px;
+    width: 300px;
 }
 
 input[type=text] {
@@ -103,25 +118,46 @@ input[type=text] {
 }
 
 
-
-.searchResults {
-    border: 1px solid lightgrey;
+#zoekResultaatContainer {
+    background-color: #fff;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    display: none;
-    background-color: #FFF;
-    }
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    margin-top: 10px;
+    padding: 10px;
+    width: 300px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    position: absolute;
+    top: calc(100% );
+    left: 0;
+    z-index: 999;
+}
 
-    /* .listItem {
-    display: flex;
-    flex-direction: column;
-    text-decoration: none;
-    padding: 5px 20px;
-    color: black;
-    }
-    .listItem:hover {
-    background-color: lightgrey;
+#zoekResultaatContainer.show {
+    opacity: 1;
+    visibility: visible;
+    /* display: block; */
+}
+
+#zoekResultaten{
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 5px 0;
+}
+
+#zoekResultaten p:first-child {
+
+}
+
+#zoekResultaten p:hover {
+    background-color: #f2f2f2;
     cursor: pointer;
-    } */
+    font-weight: bold;
+}
+
 
 
 /* Main  */

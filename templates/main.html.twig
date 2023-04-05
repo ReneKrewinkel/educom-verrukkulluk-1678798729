@@ -158,97 +158,52 @@
 
 
         $(document).ready(function() {
-            // Add click event listener to search button
-            $('#searchButton').click(function() {
-                // Get search term from input field
-                var searchTerm = $('#searchInput').val();
-            
-                // Send AJAX request to PHP script
-                $.ajax({
-                    url: './lib/zoekopdracht.php',
-                    type: 'post',
-                    data: { searchTerm: searchTerm },
-                    dataType: 'json',
-                    success: function(data) {
-                        // Handle successful response
-                        // 'data' is the JSON object returned by the PHP script
-                        // Display search results in searchResults div
-                        var resultsHtml = '';
+    // Add keyup event listener to search input field
+    $('#zoekOpdracht').on('keyup', function() {
+        // Get search term from input field
+        var searchTerm = $(this).val();
+
+        // Only search if search term is not empty
+        if (searchTerm !== '') {
+            // Send AJAX request to PHP script
+            $.ajax({
+                url: './lib/zoekopdracht.php',
+                type: 'post',
+                data: { searchTerm: searchTerm },
+                dataType: 'json',
+                success: function(data) {
+                    // Handle successful response
+                    // 'data' is the JSON object returned by the PHP script
+                    // Display search results in searchResults div
+                    var resultsHtml = '';
+                    if (data && data.length) { // check if data is not empty or undefined
                         for (var i = 0; i < data.length; i++) {
-                            resultsHtml += '<p>' + data[i].titel + '</p>';
+                            resultsHtml += '<p>' + data[i] + '</p>';
                         }
-                        $('#searchResults').html(resultsHtml);
-                    },
-                    error: function(xhr, status, error) {
-                        // Handle error
-                        console.log('Error:', error);
+                        $('#zoekResultaatContainer').addClass('show'); // zorgt ervoor dat de zoek resultaat container weer zichtbaar word wanneer er resultaten zijn.
+                    } else {
+                        resultsHtml = '<p>No results found.</p>';
+
                     }
-                });
+                    $('#zoekResultaten').html(resultsHtml);
+                    
+                },
+                error: function(xhr, status, error) {
+                    // Handle error
+                    console.log('Error:', error);
+                }
             });
-        });
+        } else {
+            // Clear search results container if search bar is empty
+            $('#zoekResultaten').empty();
+            $('#zoekResultaatContainer').removeClass('show'); 
 
-
-
-        // function loadSearchData(data) {
-        //     // Data to be used in the searchbar
-
-        //     let countries = [
-            
-        //     'Australia',
-        //     'Austria',
-        //     'Belgium',
-        //     'Belarus',
-        //     'Brazil',
-        //     'Canada',
-        //     'Denmark',
-        //     'Egypt',
-        //     'France',
-        //     'Germany',
-        //     'Netherlands',
-        //     'Norway',
-        //     'Sweden',
-        //     'Uganda',
-        //     'USA',
-        //     'Vietnam'
-        //     ];
-
-    
-
-
-
-
-        //     // Get the HTML element of the list
-        //     let list = document.getElementById('searchResults');
-        //     // Add each data item as an <a> tag
-        //     countries.forEach((country)=>{
-        //         let a = document.createElement("a");
-        //         a.innerText = country;
-        //         a.classList.add("listItem");
-        //         list.appendChild(a);
-        //     })
-        // }
-
-        // function zoeken() {
-        //     let listContainer = document.getElementById('searchResults');
-        //     let listItems = document.getElementsByClassName('listItem');
-        //     let input = document.getElementById('searchbar').value;
-        //     input = input.toLowerCase();
-        //     let noResults = true;
-        //     for (i = 0; i < listItems.length; i++) { 
-        //         if (!listItems[i].innerHTML.toLowerCase().includes(input) || input === "") {
-        //             listItems[i].style.display="none";
-        //             continue;
-        //         } else {
-        //             listItems[i].style.display="flex";
-        //             noResults = false; 
-        //         }
-        //     }
-        //     listContainer.style.display = noResults ? "none" : "block";
-        // }
+        }
+    });
+});
         
 
     </script>
-
 
 
 </head>
@@ -263,13 +218,15 @@
                 <div class="col-12 header_container" >
                     
                     <a href="http://localhost/educom-verrukkulluk-1678798729/index.php"> <img src="assets/img/logo-v2.png" class = "logo_header"/> </a>
-                    <div class="search_container">
-                        <form class="form">
-                            <input id="searchInput" type="text"" 
-                            name = "search" placeholder="search..." autocomplete="off"/>
-                            <button type="button" id="searchButton">Search</button>
-                            <div id="searchResults"></div>
-                        </form>
+                    <div id="zoekContainer">
+                            <div id = "zoekbalk">
+                                <input id="zoekOpdracht" type="text"
+                                name = "search" placeholder="search..." autocomplete="off"/>
+                                <i class="fa fa-search "></i>
+                                <div id = "zoekResultaatContainer">
+                                    <div id="zoekResultaten"></div>
+                                </div>
+                            </div>
                     </div>
                     
                     {% block header %}
@@ -278,9 +235,6 @@
             </div>
         </div>
         
-
-
-
 
         <div class="row">
             <div class="col-sm-12 col-md-3 ">
