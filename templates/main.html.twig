@@ -159,7 +159,7 @@
 
         $(document).ready(function() {
     // Add keyup event listener to search input field
-    $('#zoekOpdracht').on('keyup', function() {
+    $('.zoekOpdracht').on('keyup', function() {
         // Get search term from input field
         var searchTerm = $(this).val();
 
@@ -178,14 +178,15 @@
                     var resultsHtml = '';
                     if (data && data.length) { // check if data is not empty or undefined
                         for (var i = 0; i < data.length; i++) {
-                            resultsHtml += '<p>' + data[i] + '</p>';
+                            // resultsHtml += '<p>' + data[i].titel + '</p>';
+                            resultsHtml += '<p><a href="index.php?gerecht_id='+ data[i].id +'&action=detail">' + data[i].titel + '</a></p>';
                         }
-                        $('#zoekResultaatContainer').addClass('show'); // zorgt ervoor dat de zoek resultaat container weer zichtbaar word wanneer er resultaten zijn.
+                        $('.zoekResultaatContainer').addClass('show'); // zorgt ervoor dat de zoek resultaat container weer zichtbaar word wanneer er resultaten zijn.
                     } else {
                         resultsHtml = '<p>No results found.</p>';
 
                     }
-                    $('#zoekResultaten').html(resultsHtml);
+                    $('.zoekResultaten').html(resultsHtml);
                     
                 },
                 error: function(xhr, status, error) {
@@ -195,8 +196,8 @@
             });
         } else {
             // Clear search results container if search bar is empty
-            $('#zoekResultaten').empty();
-            $('#zoekResultaatContainer').removeClass('show'); 
+            $('.zoekResultaten').empty();
+            $('.zoekResultaatContainer').removeClass('show'); 
 
         }
     });
@@ -218,16 +219,17 @@
                 <div class="col-12 header_container" >
                     
                     <a href="http://localhost/educom-verrukkulluk-1678798729/index.php"> <img src="assets/img/logo-v2.png" class = "logo_header"/> </a>
-                    <div id="zoekContainer">
-                            <div id = "zoekbalk">
-                                <input id="zoekOpdracht" type="text"
+                    <div class="zoekContainer">
+                            <div class = "zoekbalk">
+                                <input class="zoekOpdracht" type="text"
                                 name = "search" placeholder="search..." autocomplete="off"/>
-                                <i class="fa fa-search "></i>
-                                <div id = "zoekResultaatContainer">
-                                    <div id="zoekResultaten"></div>
+                                <button class = "zoekKnop"><i class="fa fa-search "></i></button>
+                                <div class = "zoekResultaatContainer">
+                                    <div class="zoekResultaten"></div>
                                 </div>
                             </div>
                     </div>
+
                     
                     {% block header %}
                     {% endblock %}   

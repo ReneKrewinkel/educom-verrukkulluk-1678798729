@@ -57,7 +57,9 @@ p{
     font-family: "Arial";
     font-size: 14px;
 }
-
+a{
+    text-decoration: none
+}
 /* Header */
 
 .header_container {
@@ -78,10 +80,9 @@ p{
     /* overflow: hidden; */
 }
 
-
 /* Search bar */
 
-#zoekContainer {
+.zoekContainer {
     padding: 100px 25%;
     color: var(--darker-green);
     display: flex;
@@ -91,26 +92,54 @@ p{
     left: 400px;
     cursor: pointer;
 }
-#zoekbalk{
+.zoekbalk{
     position:relative;
-
 }
 
-#zoekbalk i {
+
+.zoekKnop{
     position: absolute;
     top: 50%;
-    right: 10px;
+    right: 1px;
     transform: translateY(-50%);
     font-size: 20px;
+    background: 0;
+    border-radius: 50%;
+    border: 0;
+    width:35px;
+    height:35px;
+    padding-left:8px;
+    padding-top: 5px;
     color: var(--darker-red);
   }
 
+ 
 
-#zoekopdracht {
-    padding: 5px;
-    border-radius: 50px;
-    width: 300px;
+
+.zoekOpdracht {
+    padding: 5px 1rem;
+    border-radius: 100vh;
+    width: 100px;
+    border: solid 1px var(--darker-red);
+    flex-grow: 1;
+    @media (prefers-reduced-motion: no-preference) {
+        transition: width 450ms cubic-bezier(0.18, 0.89, 0.32, 1.28);}
 }
+
+.zoekbalk:focus-within .zoekOpdracht{
+        width: 300px;
+    }
+
+.zoekOpdracht:focus + .zoekKnop{
+    background: var(--lighter-red);
+    color:white;
+}
+.zoekKnop:hover{
+    box-shadow: 0 0 10px rgba(0,0,0,.65);
+}
+
+
+
 
 input[type=text] {
     -webkit-transition: width 0.15s ease-in-out;
@@ -118,7 +147,7 @@ input[type=text] {
 }
 
 
-#zoekResultaatContainer {
+.zoekResultaatContainer {
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -135,22 +164,21 @@ input[type=text] {
     z-index: 999;
 }
 
-#zoekResultaatContainer.show {
+.zoekResultaatContainer.show {
     opacity: 1;
     visibility: visible;
     /* display: block; */
 }
 
-#zoekResultaten{
+.zoekResultaten{
     font-size: 14px;
     line-height: 1.5;
     margin: 0;
     padding: 5px 0;
+    color: black;
 }
 
-#zoekResultaten p:first-child {
 
-}
 
 #zoekResultaten p:hover {
     background-color: #f2f2f2;

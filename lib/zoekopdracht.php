@@ -21,7 +21,6 @@ class zoeken {
 
     private function ophalenDataGerechten(){
         $data = $this -> gerecht -> selecteerGerechten();
-        
         return($data);
     }
 
@@ -34,7 +33,10 @@ class zoeken {
         foreach ($zoekData as $subArray) {
             $json = json_encode($subArray);
             if (strpos($json, $searchTerm) !== false) {
-                $zoekResultaat[] = $subArray["titel"];
+                $zoekResultaat[] = [
+                    "titel" => $subArray["titel"],
+                    "id" => $subArray["id"]
+                ];
                 // var_dump($subArray["titel"]);
                 // die;
                
