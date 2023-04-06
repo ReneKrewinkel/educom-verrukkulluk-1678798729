@@ -86,7 +86,6 @@ a{
     padding: 100px 25%;
     color: var(--darker-green);
     display: flex;
-    /* float: right; */
     position: absolute;
     top: 1px;
     left: 400px;
@@ -122,8 +121,6 @@ a{
     width: 100px;
     border: solid 1px var(--darker-red);
     flex-grow: 1;
-    @media (prefers-reduced-motion: no-preference) {
-        transition: width 450ms cubic-bezier(0.18, 0.89, 0.32, 1.28);}
 }
 
 .zoekbalk:focus-within .zoekOpdracht{
@@ -135,19 +132,12 @@ a{
     color:white;
 }
 .zoekKnop:hover{
-    box-shadow: 0 0 10px rgba(0,0,0,.65);
+    background: var(--lighter-red);
+    color:white;
 }
 
 
-
-
-input[type=text] {
-    -webkit-transition: width 0.15s ease-in-out;
-    transition: width 0.15s ease-in-out;
-}
-
-
-.zoekResultaatContainer {
+#zoekResultaatContainer {
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -164,26 +154,27 @@ input[type=text] {
     z-index: 999;
 }
 
-.zoekResultaatContainer.show {
+#zoekResultaatContainer.show {
     opacity: 1;
     visibility: visible;
     /* display: block; */
 }
 
-.zoekResultaten{
+.linkZoekResultaat{
     font-size: 14px;
     line-height: 1.5;
     margin: 0;
     padding: 5px 0;
-    color: black;
+    color: var(--lighter-red);
 }
 
 
 
-#zoekResultaten p:hover {
-    background-color: #f2f2f2;
+.linkZoekResultaat:hover{
+    /* background-color: #f2f2f2; */
     cursor: pointer;
     font-weight: bold;
+    color: var(--darker-red);
 }
 
 

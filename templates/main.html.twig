@@ -158,46 +158,36 @@
 
 
         $(document).ready(function() {
-    // Add keyup event listener to search input field
     $('.zoekOpdracht').on('keyup', function() {
-        // Get search term from input field
         var searchTerm = $(this).val();
 
-        // Only search if search term is not empty
+
         if (searchTerm !== '') {
-            // Send AJAX request to PHP script
             $.ajax({
                 url: './lib/zoekopdracht.php',
                 type: 'post',
                 data: { searchTerm: searchTerm },
                 dataType: 'json',
                 success: function(data) {
-                    // Handle successful response
-                    // 'data' is the JSON object returned by the PHP script
-                    // Display search results in searchResults div
                     var resultsHtml = '';
-                    if (data && data.length) { // check if data is not empty or undefined
+                    if (data && data.length) { // controleren of data niet leeg is
                         for (var i = 0; i < data.length; i++) {
-                            // resultsHtml += '<p>' + data[i].titel + '</p>';
-                            resultsHtml += '<p><a href="index.php?gerecht_id='+ data[i].id +'&action=detail">' + data[i].titel + '</a></p>';
+                            resultsHtml += '<p><a href="index.php?gerecht_id='+ data[i].id +'&action=detail" class = "linkZoekResultaat">' + data[i].titel + '</a></p>';
                         }
-                        $('.zoekResultaatContainer').addClass('show'); // zorgt ervoor dat de zoek resultaat container weer zichtbaar word wanneer er resultaten zijn.
+                        $('#zoekResultaatContainer').addClass('show'); // zorgt ervoor dat de zoek resultaat container weer zichtbaar word wanneer er resultaten zijn.
                     } else {
                         resultsHtml = '<p>No results found.</p>';
-
                     }
-                    $('.zoekResultaten').html(resultsHtml);
-                    
+
+                    $('#zoekResultaten').html(resultsHtml);
                 },
                 error: function(xhr, status, error) {
-                    // Handle error
                     console.log('Error:', error);
                 }
             });
         } else {
-            // Clear search results container if search bar is empty
-            $('.zoekResultaten').empty();
-            $('.zoekResultaatContainer').removeClass('show'); 
+            $('#zoekResultaten').empty();
+            $('#zoekResultaatContainer').removeClass('show'); 
 
         }
     });
@@ -224,8 +214,8 @@
                                 <input class="zoekOpdracht" type="text"
                                 name = "search" placeholder="search..." autocomplete="off"/>
                                 <button class = "zoekKnop"><i class="fa fa-search "></i></button>
-                                <div class = "zoekResultaatContainer">
-                                    <div class="zoekResultaten"></div>
+                                <div id = "zoekResultaatContainer">
+                                    <div id="zoekResultaten"></div>
                                 </div>
                             </div>
                     </div>

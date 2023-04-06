@@ -27,23 +27,17 @@ class zoeken {
     public function zoekopdracht($searchTerm){
 
         $zoekData = $this -> ophalenDataGerechten();
-        $searchTerm = $this->connection->real_escape_string($searchTerm);
 
         $zoekResultaat = [];
         foreach ($zoekData as $subArray) {
             $json = json_encode($subArray);
-            if (strpos($json, $searchTerm) !== false) {
+            if (stripos($json, $searchTerm) !== false) {
                 $zoekResultaat[] = [
                     "titel" => $subArray["titel"],
                     "id" => $subArray["id"]
                 ];
-                // var_dump($subArray["titel"]);
-                // die;
-               
         }
     }
-    // var_dump($zoekResultaat);
-    // die;
 
         header('Content-Type: application/json');
         echo json_encode($zoekResultaat);
